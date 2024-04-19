@@ -1,9 +1,9 @@
-package deliverySpringProject.command;
+package deliverySpringProject.domain;
 
 import java.util.Date;
 
-public class ShopCommand {
-	
+public class ShopDTO {
+
 	String shopOwner;
 	String shopName;
 	String shopType;
@@ -89,6 +89,28 @@ public class ShopCommand {
 	public void setShopRegistDate(Date shopRegistDate) {
 		this.shopRegistDate = shopRegistDate;
 	}
+	public ShopDTO(String shopOwner, String shopName, String shopType, String shopAddr, String shopAddrDetail,
+			String shopPhone, String shopExplain, String shopLogo, String shopLogoImg, Integer shopMin,
+			Integer shopDelivery, Date shopRegistDate) {
+		super();
+		this.shopOwner = shopOwner;
+		this.shopName = shopName;
+		this.shopType = shopType;
+		this.shopAddr = shopAddr;
+		this.shopAddrDetail = shopAddrDetail;
+		this.shopPhone = shopPhone;
+		this.shopExplain = shopExplain;
+		this.shopLogo = shopLogo;
+		this.shopLogoImg = shopLogoImg;
+		this.shopMin = shopMin;
+		this.shopDelivery = shopDelivery;
+		this.shopRegistDate = shopRegistDate;
+	}
+	
+	public ShopDTO() {
+		super();
+	}
+	
 	
 	
 	
