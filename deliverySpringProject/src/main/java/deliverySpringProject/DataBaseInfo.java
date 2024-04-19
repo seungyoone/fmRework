@@ -15,7 +15,7 @@ public class DataBaseInfo {
 	public SqlSessionFactory sqlSessionFactory(DataSource dataSource, ApplicationContext applicationContext)throws Exception {
 	    SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();
 	    sessionFactory.setDataSource(dataSource);
-	    sessionFactory.setTypeAliasesPackage("deliveryProject.domain");
+	    sessionFactory.setTypeAliasesPackage("deliverySpringProject.domain");
 	    org.apache.ibatis.session.Configuration configuration = new org.apache.ibatis.session.Configuration();
 		configuration.setMapUnderscoreToCamelCase(true);
 		sessionFactory.setConfiguration(configuration);

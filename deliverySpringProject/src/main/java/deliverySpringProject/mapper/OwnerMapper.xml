@@ -3,5 +3,16 @@
 	"-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">	
 <mapper namespace="deliverySpringProject.mapper.OwnerMapper">
-
+	
+	<sql id="ownerBaseColumns">
+		owner_id ownerId,owner_pw ownerPw,owner_name ownerName
+		,owner_phone ownerPhone ,owner_num ownerNum
+		,owner_eamil ownerEmail,owner_birth ownerBirth
+	</sql>
+	
+	<insert id="ownerRegist" parameterType="owner">
+		insert into owner(owner_id,owner_pw,owner_name,owner_phone,owner_num,owner_email,owner_birth)
+		values(#{ownerId},#{ownerPw},#{ownerName},#{ownerPhone},#{ownerNum},#{ownerEmail},#{ownerBirth})	
+	</insert>
+	
 </mapper>

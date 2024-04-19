@@ -2,6 +2,8 @@ package deliverySpringProject.command;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class OwnerCommand {
 	String ownerName;
 	String ownerId;
@@ -10,6 +12,7 @@ public class OwnerCommand {
 	String ownerPhone;
 	String ownerNum;
 	String ownerEmail;
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	Date ownerBirth;
 	
 	public String getOwnerName() {

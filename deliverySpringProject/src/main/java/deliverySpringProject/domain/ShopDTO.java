@@ -2,6 +2,9 @@ package deliverySpringProject.domain;
 
 import java.util.Date;
 
+import org.apache.ibatis.type.Alias;
+
+@Alias("shop");
 public class ShopDTO {
 
 	String shopOwner;

@@ -7,6 +7,7 @@ import deliverySpringProject.domain.OwnerDTO;
 
 @Mapper
 public interface OwnerMapper {
+	
 	public void ownerRegist(OwnerDTO dto);
 	
 	
