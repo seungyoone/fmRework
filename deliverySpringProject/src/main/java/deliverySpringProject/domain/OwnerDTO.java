@@ -2,6 +2,9 @@ package deliverySpringProject.domain;
 
 import java.util.Date;
 
+import org.apache.ibatis.type.Alias;
+
+@Alias("owner")
 public class OwnerDTO {
 	String ownerId;
 	String ownerPw;
