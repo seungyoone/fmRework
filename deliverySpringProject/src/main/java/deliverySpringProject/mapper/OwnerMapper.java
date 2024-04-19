@@ -1,5 +1,11 @@
 package deliverySpringProject.mapper;
 
-public interface OwnerMapper {
 
+import org.apache.ibatis.annotations.Mapper;
+
+@Mapper
+public interface OwnerMapper {
+	
+	
+	
 }

@@ -16,14 +16,16 @@ public class OwnerController {
 	
 	@Autowired
 	ShopRegistService shopRegistService;
+	
 
-	@GetMapping("ownerRegist")
+	@GetMapping("ownerForm")
 	public String ownerRegist() {
-		return "thymeleaf/owner/ownerRegist";
+		return "thymeleaf/owner/ownerForm";
 	}
 	
-	@GetMapping("shopRegist")
+	@GetMapping("shopForm")
 	public String shopRegist() {
-		return "thymeleaf/owner/shopRegist";
+		return "thymeleaf/owner/shopForm";
 	}
+	
 }
