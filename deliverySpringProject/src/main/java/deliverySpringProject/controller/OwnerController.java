@@ -11,4 +11,9 @@ public class OwnerController {
 	public String ownerRegist() {
 		return "thymeleaf/owner/ownerRegist";
 	}
+	
+	@GetMapping("shopRegist")
+	public String shopRegist() {
+		return "thymeleaf/owner/shopRegist";
+	}
 }
