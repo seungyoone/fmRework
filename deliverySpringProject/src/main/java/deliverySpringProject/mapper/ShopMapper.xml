@@ -14,4 +14,8 @@
 			,#{shopRegistDate})
 		</insert>
 		
+		<select id="shopNameSelect" parameterType="string" resultType="string">
+			select shop_name from shop where shop_owner = #{ownerName}
+		</select>
+		
 	</mapper>	

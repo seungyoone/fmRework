@@ -8,5 +8,6 @@ import deliverySpringProject.domain.ShopDTO;
 public interface ShopMapper {
 	
 	public void shopInsert(ShopDTO dto);
-
+	
+	public String shopNameSelect(String ownerName);
 }

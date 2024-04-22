@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import deliverySpringProject.command.MenuCommand;
+import deliverySpringProject.domain.AuthInfoDTO;
 import deliverySpringProject.domain.MenuDTO;
 import deliverySpringProject.mapper.MenuMapper;
 import deliverySpringProject.mapper.ShopMapper;
@@ -21,17 +22,15 @@ public class MenuRegistService {
 	@Autowired
 	ShopMapper shopMapper;
 	
-	public void execute(MenuCommand menuCommand) {
+	public void execute(MenuCommand menuCommand,HttpSession session) {
 		MenuDTO dto = new MenuDTO();
 		dto.setMenuExplain(menuCommand.getMenuExplain());
 		dto.setMenuName(menuCommand.getMenuName());
 		dto.setMenuPrice(menuCommand.getMenuPrice());
+		AuthInfoDTO auth = (AuthInfoDTO)session.getAttribute("auth");
 		
-		/*
-		
-		String shopName = shopMapper.getShopName(auth.getUserId());
+		String shopName=shopMapper.shopNameSelect(auth.getUserName());
 		dto.setShopName(shopName);
-		*/
 		
 		URL resource = getClass().getClassLoader().getResource("static/upload");
 		String fileDir = resource.getFile();  // 이 파일 경로는 실제 파일 시스템에서의 경로
