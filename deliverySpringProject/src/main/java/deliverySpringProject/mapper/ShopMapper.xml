@@ -5,4 +5,13 @@
 	
 	<mapper namespace="deliverySpringProject.mapper.ShopMapper">
 	
+		<insert id="shopInsert" parameterType="shop">
+			insert into shop(shop_owner,shop_name,shop_type
+			,shop_addr,shop_addrdetail,shop_phone,shop_explain
+			,shop_logo,shop_logo_img,shop_min,shop_delivery,shop_registDate)
+			values(#{shopOwner},#{shopName},#{shopType},#{shopAddr},#{shopAddrDetail},
+			#{shopPhone},#{shopExplain},#{shopLogo},#{shopLogoImg},#{shopMin},#{shopDelivery}
+			,#{shopRegistDate})
+		</insert>
+		
 	</mapper>	

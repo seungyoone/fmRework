@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+
+@font-face {
+    font-family: 'fmFont';
+    src: url('/static/font/Jalnan2TTF.ttf') format('truetype');
+}
+
+body {
+    font-family: 'fmFont', sans-serif;
+}
+
+table {
+	font-family: 'fmFont', sans-serif;
+}

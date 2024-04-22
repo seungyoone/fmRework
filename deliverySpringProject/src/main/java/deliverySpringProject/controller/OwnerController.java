@@ -8,8 +8,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import deliverySpringProject.command.OwnerCommand;
+import deliverySpringProject.command.ShopCommand;
 import deliverySpringProject.service.owner.OwnerRegistService;
 import deliverySpringProject.service.owner.ShopRegistService;
+import jakarta.servlet.http.HttpSession;
 
 
 
@@ -35,6 +37,12 @@ public class OwnerController {
 	@GetMapping("shopForm")
 	public String shopForm() {
 		return "thymeleaf/owner/shopForm";
+	}
+	
+	@PostMapping("shopRegist")
+	public String shopRegist(ShopCommand shopCommand,HttpSession session) {
+		shopRegistService.execute(shopCommand,session);
+		return "";
 	}
 	
 }

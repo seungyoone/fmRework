@@ -2,6 +2,8 @@ package deliverySpringProject.command;
 
 import java.util.Date;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class ShopCommand {
 	
 	String shopOwner;
@@ -11,8 +13,7 @@ public class ShopCommand {
 	String shopAddrDetail;
 	String shopPhone;
 	String shopExplain;
-	String shopLogo;
-	String shopLogoImg;
+	MultipartFile shopLogo;
 	Integer shopMin;
 	Integer shopDelivery;
 	Date shopRegistDate;
@@ -59,17 +60,12 @@ public class ShopCommand {
 	public void setShopExplain(String shopExplain) {
 		this.shopExplain = shopExplain;
 	}
-	public String getShopLogo() {
+	
+	public MultipartFile getShopLogo() {
 		return shopLogo;
 	}
-	public void setShopLogo(String shopLogo) {
+	public void setShopLogo(MultipartFile shopLogo) {
 		this.shopLogo = shopLogo;
-	}
-	public String getShopLogoImg() {
-		return shopLogoImg;
-	}
-	public void setShopLogoImg(String shopLogoImg) {
-		this.shopLogoImg = shopLogoImg;
 	}
 	public Integer getShopMin() {
 		return shopMin;

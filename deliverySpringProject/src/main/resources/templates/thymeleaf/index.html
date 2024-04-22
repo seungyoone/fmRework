@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="/static/css/font.css">
 </head>
 <body>
 <th:block th:if="${session.auth==null and result==2}">
@@ -55,8 +56,8 @@
 
 <th:block th:if="${session.auth==null}">
 <ul>
-<li><a href="/owner/ownerForm">점주등록</a></li>
-<li><a href="/customer/customerForm">주문자등록</a></li>
+<li><a href="/owner/ownerForm">점주회원가입</a></li>
+<li><a href="/customer/customerForm">주문자회원가입</a></li>
 </ul>
 </th:block>
 
@@ -70,11 +71,10 @@
 
 	</th:block>
 	<th:block th:if="${session.auth.grade=='customer'}">
-	<li><a href="/customer/customerForm">주문자등록</a></li>
-	<li><a href="">성공</a></li>
+	<li><a href="">식당리스트</a></li>
+	<li><a href="/login/logout">로그아웃</a></li>
 	</th:block>
 </ul>
-
 </th:block>
 </body>
 </html>

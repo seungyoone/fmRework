@@ -1,9 +1,18 @@
 package deliverySpringProject.service.owner;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.UUID;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
-import deliverySpringProject.mapper.OwnerMapper;
+import deliverySpringProject.command.ShopCommand;
+import deliverySpringProject.domain.AuthInfoDTO;
+import deliverySpringProject.domain.ShopDTO;
+import deliverySpringProject.mapper.ShopMapper;
+import jakarta.servlet.http.HttpSession;
 
 
 
@@ -11,10 +20,39 @@ import deliverySpringProject.mapper.OwnerMapper;
 @Service
 public class ShopRegistService {
 	@Autowired
-	OwnerMapper ownerMapper;
+	ShopMapper shopMapper;
 	
-	public void execute() {
+	public void execute(ShopCommand shopCommand,HttpSession session) {
+		AuthInfoDTO auth = (AuthInfoDTO)session.getAttribute("auth");
+		ShopDTO dto = new ShopDTO();
+		dto.setShopAddr(shopCommand.getShopAddr());
+		dto.setShopAddrDetail(shopCommand.getShopAddrDetail());
+		dto.setShopDelivery(shopCommand.getShopDelivery());
+		dto.setShopExplain(shopCommand.getShopExplain());
+		dto.setShopMin(shopCommand.getShopMin());
+		dto.setShopName(shopCommand.getShopName());
+		dto.setShopPhone(shopCommand.getShopPhone());
+		dto.setShopRegistDate(shopCommand.getShopRegistDate());
+		dto.setShopType(shopCommand.getShopType());
+		dto.setShopOwner(auth.getUserName());
 		
+		String fileDir = "C:\\User\\user\\git\\fmRework\\deliverySpringProject\\target\\classes\\static\\upload";
+		MultipartFile mf = shopCommand.getShopLogo();
+		String originalFile = mf.getOriginalFilename();
+		String extension = originalFile.substring(originalFile.lastIndexOf(","));
+		String storeName = UUID.randomUUID().toString().replace("-", "");
+		String storeFileName = storeName + extension;
+		File file = new File(fileDir+"/"+storeFileName);
+		try {
+			mf.transferTo(file);
+		}catch (IllegalStateException e) {
+			e.printStackTrace();
+		}catch (IOException e) {
+			e.printStackTrace();
+		}
+		dto.setShopLogo(storeFileName);
+		dto.setShopLogoImg(originalFile);		
 		
+		shopMapper.shopInsert(dto);
 	}
 }
