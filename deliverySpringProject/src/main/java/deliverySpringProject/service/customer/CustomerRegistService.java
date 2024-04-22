@@ -1,6 +1,7 @@
 package deliverySpringProject.service.customer;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import deliverySpringProject.command.CustomerCommand;
@@ -11,6 +12,8 @@ import deliverySpringProject.mapper.CustomerMapper;
 public class CustomerRegistService {
 	@Autowired
 	CustomerMapper customerMapper;
+	@Autowired
+	PasswordEncoder passwordEncoder;
 	
 	public void execute(CustomerCommand customerCommand) {
 		CustomerDTO dto = new CustomerDTO();
@@ -21,7 +24,8 @@ public class CustomerRegistService {
 		dto.setCustomerId(customerCommand.getCustomerId());
 		dto.setCustomerName(customerCommand.getCustomerName());
 		dto.setCustomerPhone(customerCommand.getCustomerPhone());
-		dto.setCustomerPw(customerCommand.getCustomerPw());
+		String customerPw = passwordEncoder.encode(customerCommand.getCustomerPw());
+		dto.setCustomerPw(customerPw);
 		customerMapper.customerRegist(dto);
 	}
 }
