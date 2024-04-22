@@ -69,19 +69,16 @@
    <li><a href="/owner/shopForm">가게등록</a></li>
    <li><a href="/menu/menuForm">메뉴등록</a>
    <li><a href="/login/logout">로그아웃</a></li>
-
-<<<<<<< HEAD
 	</th:block>
+	
 	<th:block th:if="${session.auth.grade=='customer'}">
 	<li><a href="">식당리스트</a></li>
 	<li><a href="/login/logout">로그아웃</a></li>
 	</th:block>
-=======
    </th:block>
-   <th:block th:if="${session.auth.grade=='customer'}">
-   <li><a href="/login/logout">로그아웃</a></li>
-   </th:block>
->>>>>>> branch 'main' of https://github.com/seungyoone/fmRework.git
+   
+  
+
 </ul>
 </th:block>
 </body>

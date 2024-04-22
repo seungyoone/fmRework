@@ -3,62 +3,71 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script
+	src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script src="/static/js/daumAddressScript.js"></script>
+
 <link rel="stylesheet" type="text/css" href="/static/css/font.css">
 </head>
 <body>
-가게등록화면입니다.
-<form action="shopRegist" method="post">
-<table border=1 align=center width=500>
-<tr>
+	식당등록화면입니다.
+	<form action="shopRegist" method="post" enctype="multipart/form-data">
+		<table border=1 align=center width=800 >
+			<tr>
+				<td>가게이름:</td>
+				<td><input type="text" name="shopName" /></td>
 
-<td>가게이름: </td><td><input type="text" id="shopName"/></td>
-<td>식당이름: </td><td><input type="text" id=""/></td>
-
-</tr>
-<tr>
-<td><label for ="shopType">음식종류: </label>
-	<td>
-	<select name="shopType" id="shopType">
-    <option value="한식">한식</option>
-    <option value="중식">중식</option>
-    <option value="일식">일식</option>
-    <option value="양식">양식</option>
-    <option value="아시안">아시안</option>
-    <option value="패스트푸드">패스트푸드</option>
-    <option value="분식">분식</option>
-    <option value="카페/디저트">카페/디저트</option>
-  </select>
-  </td>
-</tr>
-<tr>
-<td>주소: </td><td><input type="text" id="shopAddr"/></td>
-</tr>
-<tr>
-<td>상세주소: </td><td><input type="text" id="shopAddrDetail"/></td>
-</tr>
-<tr>
-<td>가게전화번호: </td><td><input type="text" id="shopPhone"/></td>
-</tr>
-<tr>
-<td>가게한줄소개: </td><td><input type="text" id="shopExplain"/></td>
-</tr>
-<tr>
-<td>가게로고: </td><td><input type="file" id="shopLogo"/></td>
-</tr>
-<tr>
-<td>가게 최소주문금액: </td><td><input type="text" id="shopMin"/></td>
-</tr>
-<tr>
-<td>배달팁: </td><td><input type="text" id="shopDelivery"/></td>
-</tr>
-<tr>
-<td>개업일: </td><td><input type="date" id=""/></td>
-</tr>
-</table>
-<div style="text-align: center;">
-	<br />
-    <input type="submit" value="식당 등록하기"/>
-</div>
-</form>
+			</tr>
+			<tr>
+				<td><label for="shopType">음식종류: </label>
+				<td><select name="shopType" id="shopType">
+						<option value="한식">한식</option>
+						<option value="중식">중식</option>
+						<option value="일식">일식</option>
+						<option value="양식">양식</option>
+						<option value="아시안">아시안</option>
+						<option value="패스트푸드">패스트푸드</option>
+						<option value="분식">분식</option>
+						<option value="카페/디저트">카페/디저트</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td>주소:</td>
+				<td><input type="text" name="shopAddr" id="sample4_roadAddress"
+					onclick="execDaumPostcode()" /></td>
+			</tr>
+			<tr>
+				<td>상세주소:</td>
+				<td><input type="text" name="shopAddrDetail" /></td>
+			</tr>
+			<tr>
+				<td>가게전화번호:</td>
+				<td><input type="text" name="shopPhone" /></td>
+			</tr>
+			<tr>
+				<td>가게한줄소개:</td>
+				<td><input type="text" name="shopExplain" /></td>
+			</tr>
+			<tr>
+				<td>가게로고:</td>
+				<td><input type="file" name="shopLogo" /></td>
+			</tr>
+			<tr>
+				<td>가게 최소주문금액:</td>
+				<td><input type="text" name="shopMin" /></td>
+			</tr>
+			<tr>
+				<td>배달팁:</td>
+				<td><input type="text" name="shopDelivery" /></td>
+			</tr>
+			<tr>
+				<td>개업일:</td>
+				<td><input type="date" name="shopRegistDate" /></td>
+			</tr>
+		</table>
+		<div style="text-align: center;">
+			<br /> <input type="submit" value="식당등록" />
+		</div>
+	</form>
 </body>
 </html>

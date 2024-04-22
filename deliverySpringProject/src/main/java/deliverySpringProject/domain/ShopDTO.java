@@ -17,7 +17,7 @@ public class ShopDTO {
 	String shopLogo;
 	String shopLogoImg;
 	Integer shopMin;
-	Integer shopDelivery;
+	Integer shopDelivery; 
 	Date shopRegistDate;
 	
 	public String getShopOwner() {

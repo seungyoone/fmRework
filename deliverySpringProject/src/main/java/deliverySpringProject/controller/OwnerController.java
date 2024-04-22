@@ -42,7 +42,7 @@ public class OwnerController {
 	@PostMapping("shopRegist")
 	public String shopRegist(ShopCommand shopCommand,HttpSession session) {
 		shopRegistService.execute(shopCommand,session);
-		return "";
+		return "redirect:/";
 	}
 	
 }

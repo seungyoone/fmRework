@@ -36,10 +36,10 @@ public class ShopRegistService {
 		dto.setShopType(shopCommand.getShopType());
 		dto.setShopOwner(auth.getUserName());
 		
-		String fileDir = "C:\\User\\user\\git\\fmRework\\deliverySpringProject\\target\\classes\\static\\upload";
+		String fileDir = "C:\\Users\\user\\git\\fmRework\\deliverySpringProject\\target\\classes\\static\\upload";
 		MultipartFile mf = shopCommand.getShopLogo();
 		String originalFile = mf.getOriginalFilename();
-		String extension = originalFile.substring(originalFile.lastIndexOf(","));
+		String extension = originalFile.substring(originalFile.lastIndexOf("."));
 		String storeName = UUID.randomUUID().toString().replace("-", "");
 		String storeFileName = storeName + extension;
 		File file = new File(fileDir+"/"+storeFileName);

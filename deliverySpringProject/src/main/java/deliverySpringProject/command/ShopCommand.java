@@ -2,6 +2,7 @@ package deliverySpringProject.command;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.multipart.MultipartFile;
 
 public class ShopCommand {
@@ -16,6 +17,7 @@ public class ShopCommand {
 	MultipartFile shopLogo;
 	Integer shopMin;
 	Integer shopDelivery;
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	Date shopRegistDate;
 	
 	public String getShopOwner() {
