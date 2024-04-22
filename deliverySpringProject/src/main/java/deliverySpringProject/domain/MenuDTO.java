@@ -9,8 +9,8 @@ public class MenuDTO {
 	String menuName;
 	Integer menuPrice; 
 	String menuExplain;
-	MultipartFile menuContent;
-	MultipartFile menuContentImg;
+	String menuContent;
+	String menuContentImg;
 	public String getShopName() {
 		return shopName;
 	}
@@ -35,20 +35,20 @@ public class MenuDTO {
 	public void setMenuExplain(String menuExplain) {
 		this.menuExplain = menuExplain;
 	}
-	public MultipartFile getMenuContent() {
+	public String getMenuContent() {
 		return menuContent;
 	}
-	public void setMenuContent(MultipartFile menuContent) {
+	public void setMenuContent(String menuContent) {
 		this.menuContent = menuContent;
 	}
-	public MultipartFile getMenuContentImg() {
+	public String getMenuContentImg() {
 		return menuContentImg;
 	}
-	public void setMenuContentImg(MultipartFile menuContentImg) {
+	public void setMenuContentImg(String menuContentImg) {
 		this.menuContentImg = menuContentImg;
 	}
-	public MenuDTO(String shopName, String menuName, Integer menuPrice, String menuExplain, MultipartFile menuContent,
-			MultipartFile menuContentImg) {
+	public MenuDTO(String shopName, String menuName, Integer menuPrice, String menuExplain, String menuContent,
+			String menuContentImg) {
 		super();
 		this.shopName = shopName;
 		this.menuName = menuName;
@@ -60,6 +60,5 @@ public class MenuDTO {
 	public MenuDTO() {
 		super();
 	}
-	
 	
 }

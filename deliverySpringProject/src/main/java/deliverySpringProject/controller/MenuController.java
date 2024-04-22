@@ -21,8 +21,8 @@ public class MenuController {
 	@Autowired
 	MenuRegistService menuRegistService;
 	@PostMapping("menuRegist")
-	public String menuRegist(MenuCommand menuCommand, HttpSession session) {
-		menuRegistService.execute(menuCommand, session);
+	public String menuRegist(MenuCommand menuCommand) {
+		menuRegistService.execute(menuCommand);
 		return "redirect:/";
 	}
 	
