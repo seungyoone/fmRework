@@ -7,4 +7,7 @@ import deliverySpringProject.domain.CustomerDTO;
 @Mapper
 public interface CustomerMapper {
 	public void customerRegist(CustomerDTO dto);
+	
+	public String customerAddrSelect(String userId);
+	
 }

@@ -15,4 +15,5 @@
 		values(#{ownerId},#{ownerPw},#{ownerName},#{ownerPhone},#{ownerNum},#{ownerEmail},#{ownerBirth})	
 	</insert>
 	
+	
 </mapper>

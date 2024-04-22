@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	table {
+		width:40%;
+	}
+	td:first-child{
+		width:10%;
+	}
+	td:nth-child(2){
+		width:30%;
+	}
+	img{
+		width:100%;
+	}
+	.no-border1 td{
+		border:none;
+	}
+	
+	.no-border td{
+		border-top:none;
+		border-left:none;
+	}
+	.nameborder {
+	border-right:none;
+	}
+	
+</style>
+<link rel="stylesheet" type="text/css" href="/static/css/font.css">
+</head>
+<body>
+<table th:each="dto:${dtos}" align="center" border = 1 width="300">
+		<tr class="no-border">
+		<td class ="logo" rowspan="3">
+		<a th:href="|shopDetailView/${dto.shopOwner}|">
+		<img th:src="|/static/upload/${dto.shopLogo}|" />
+		</a>
+		</td>
+		<td class="nameborder">
+		<a th:href="|shopDetailView/${dto.shopOwner}|">
+		[[${dto.shopName}]] 
+		</a>
+		</td>
+		</tr>
+		<tr class="no-border1">
+		<td>
+		배달팁 [[${dto.shopDelivery}]]원
+		</td>
+		</tr>	
+		<tr class="no-border1">
+		<td>
+		최소주문 [[${dto.shopMin}]]원
+		</td>
+		</tr>
+		
+		
+</table>
+
+</body>
+</html>

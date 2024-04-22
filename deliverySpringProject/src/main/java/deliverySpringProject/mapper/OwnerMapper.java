@@ -11,4 +11,5 @@ public interface OwnerMapper {
 	public void ownerRegist(OwnerDTO dto);
 	
 	
+	
 }

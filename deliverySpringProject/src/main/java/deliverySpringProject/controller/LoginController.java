@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import deliverySpringProject.command.LoginCommand;
+import deliverySpringProject.service.customer.CustomerShopListService;
 import deliverySpringProject.service.login.UserLoginService;
 import deliverySpringProject.service.login.UserLogoutService;
 import jakarta.servlet.http.HttpSession;
@@ -24,9 +25,9 @@ public class LoginController {
 	
 	@PostMapping("login")
 	public String login(LoginCommand loginCommand,HttpSession session,Model model) {
-		int result = userLoginService.execute(loginCommand,session);//성공시 1, 실패시 0
+		int result = userLoginService.execute(loginCommand,session,model);//성공시 1, 실패시 0
 		model.addAttribute("result", result);
-		return "thymeleaf/index";
+		return "redirect:/";
 	}
 	
 	@RequestMapping("logout")
