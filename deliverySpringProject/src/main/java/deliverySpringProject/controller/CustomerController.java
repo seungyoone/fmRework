@@ -24,4 +24,9 @@ public class CustomerController {
 		customerRegistService.execute(customerCommand);
 		return "redirect:/";
 	}
+	
+	@GetMapping("detail")
+	public String detail() {
+		return "thymeleaf/customer/shopDetailView";
+	}
 }
