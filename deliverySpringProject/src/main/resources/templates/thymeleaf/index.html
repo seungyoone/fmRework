@@ -9,23 +9,23 @@
 <th:block th:if="${session.auth==null and result==2}">
 <form action="/login/login" method="post">
 <table border=1 align="center" width="300">
-	<tr><td>
-			<input type="text" name="userId"  placeholder="아이디" />
-		</td>
-		<td rowspan="2">
-			<input type="submit" value="로그인" />
-		</td>
-	</tr>
-	<tr><td>
-			<input type="password" name="userPw" placeholder="비밀번호"/>
-		</td>
-	</tr>
-	<!--  
-	<tr><td colspan="2">
-			<a href="userAgree">회원가입</a>
-		</td>
-	</tr>
-	-->
+   <tr><td>
+         <input type="text" name="userId"  placeholder="아이디" />
+      </td>
+      <td rowspan="2">
+         <input type="submit" value="로그인" />
+      </td>
+   </tr>
+   <tr><td>
+         <input type="password" name="userPw" placeholder="비밀번호"/>
+      </td>
+   </tr>
+   <!--  
+   <tr><td colspan="2">
+         <a href="userAgree">회원가입</a>
+      </td>
+   </tr>
+   -->
 </table>
 </form>
 </th:block>
@@ -33,23 +33,23 @@
 <th:block th:if="${result==0}">
 <form action="/login/login" method="post">
 <table border=1 align="center" width="300">
-	<tr><td>
-			<input type="text" name="userId"  placeholder="아이디" />
-		</td>
-		<td rowspan="2">
-			<input type="submit" value="로그인" />
-		</td>
-	</tr>
-	<tr><td>
-			<input type="password" name="userPw" placeholder="비밀번호가 틀렸습니다."/>
-		</td>
-	</tr>
-	<!--  
-	<tr><td colspan="2">
-			<a href="userAgree">회원가입</a>
-		</td>
-	</tr>
-	-->
+   <tr><td>
+         <input type="text" name="userId"  placeholder="아이디" />
+      </td>
+      <td rowspan="2">
+         <input type="submit" value="로그인" />
+      </td>
+   </tr>
+   <tr><td>
+         <input type="password" name="userPw" placeholder="비밀번호가 틀렸습니다."/>
+      </td>
+   </tr>
+   <!--  
+   <tr><td colspan="2">
+         <a href="userAgree">회원가입</a>
+      </td>
+   </tr>
+   -->
 </table>
 </form>
 </th:block>
@@ -65,16 +65,23 @@
 </th:block>
 <th:block th:if="${session.auth!=null}">
 <ul>
-	<th:block th:if="${session.auth.grade=='owner'}">
-	<li><a href="/owner/shopForm">가게등록</a></li>
-	<li><a href="/login/logout">로그아웃</a></li>
+   <th:block th:if="${session.auth.grade=='owner'}">
+   <li><a href="/owner/shopForm">가게등록</a></li>
+   <li><a href="/menu/menuForm">메뉴등록</a>
+   <li><a href="/login/logout">로그아웃</a></li>
 
+<<<<<<< HEAD
 	</th:block>
 	<th:block th:if="${session.auth.grade=='customer'}">
 	<li><a href="">식당리스트</a></li>
 	<li><a href="/login/logout">로그아웃</a></li>
 	</th:block>
+=======
+   </th:block>
+   <th:block th:if="${session.auth.grade=='customer'}">
+   <li><a href="/login/logout">로그아웃</a></li>
+   </th:block>
+>>>>>>> branch 'main' of https://github.com/seungyoone/fmRework.git
 </ul>
 </th:block>
 </body>
-</html>

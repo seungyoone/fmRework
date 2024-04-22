@@ -2,6 +2,8 @@ package deliverySpringProject.command;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class CustomerCommand {
 	String customerName;
 	String customerId;
@@ -10,6 +12,7 @@ public class CustomerCommand {
 	String customerPhone;
 	String customerAddr;
 	String customerAddrDetail;
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	Date customerBirth;
 	String customerEmail;
 	public String getCustomerName() {

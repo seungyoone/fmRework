@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script src="/static/js/daumAddressScript.js"></script>
 </head>
 <body>
 <form action="customerRegist" method="post">
@@ -19,7 +21,7 @@
 	<tr><td>전화번호</td>
 		<td><input type="tel" name="customerPhone"></td></tr>
 	<tr><td>주소</td>
-		<td><input type="text" name="customerAddr"></td></tr>
+		<td><input type="text" name="customerAddr" id="sample4_roadAddress" onclick="execDaumPostcode()"></td></tr>
 	<tr><td>상세주소</td>
 		<td><input type="text" name="customerAddrDetail"></td></tr>
 	<tr><td>생년월일</td>
