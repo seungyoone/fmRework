@@ -33,18 +33,19 @@
     	border:none;
     }
 </style>
+<link rel="stylesheet" type="text/css" href="/static/css/font.css">
 </head>
 <body>
-<table border=1 align="center" width="400">
-	<tr class="no-border1"><td>ㅎㅎ
-		<!-- <img th:src="|/static/upload/${}|" width="300" height="300" /> -->
+<table th:each="dto: ${dto}" border=1 align="center" width="400">
+	<tr class="no-border1"><td>
+		<img th:src="|/static/upload/${dto.shopLogo}|" width="300" height="300" />
 		</td>
 	</tr>
-	<tr class="no-border"><td>식당이름 ${dto.shopName}</td></tr>
-	<tr class="no-border1"><td>식당설명 ${dto.shopExplain}</td></tr>
+	<tr class="no-border"><td>[[${dto.shopName}]]</td></tr>
+	<tr class="no-border1"><td>[[${dto.shopExplain}]]</td></tr>
 	
-	<tr class="no-border"><td>최소주문금액 ${dto.shopMin}</td></tr>
-	<tr class="no-border1"><td>배달팁 ${dto.shopDelivery}</td></tr>
+	<tr class="no-border"><td>최소주문금액 [[${dto.shopMin}]]</td></tr>
+	<tr class="no-border1"><td>배달팁 [[${dto.shopDelivery}]]</td></tr>
 </table>
 
 <table class="menuList" border=1 width="400" align="center"> <!-- th:each주기 -->

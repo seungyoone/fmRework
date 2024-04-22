@@ -25,4 +25,8 @@
 			)
 		</select>
 		
+		<select id="shopSelectOne" parameterType="string" resultType="shop">
+			select * from shop where shop_owner = #{shopOwner}
+		</select>
+		
 	</mapper>	

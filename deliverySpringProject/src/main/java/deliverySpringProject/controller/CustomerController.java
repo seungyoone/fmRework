@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import deliverySpringProject.command.CustomerCommand;
 import deliverySpringProject.service.customer.CustomerRegistService;
+import deliverySpringProject.service.customer.CustomerShopDetailService;
 import deliverySpringProject.service.customer.CustomerShopListService;
 import jakarta.servlet.http.HttpSession;
 
@@ -20,6 +21,9 @@ public class CustomerController {
 	
 	@Autowired
 	CustomerShopListService customerShopListService;
+	
+	@Autowired
+	CustomerShopDetailService customerShopDetailService;
 	
 	@GetMapping("customerForm")
 	public String customerForm() {
@@ -38,8 +42,9 @@ public class CustomerController {
 		return "thymeleaf/customer/shopList";
 	}
 
-	@GetMapping("detail")
-	public String detail() {
+	@GetMapping("shopDetail")
+	public String detail(String shopOwner,Model model) {
+		customerShopDetailService.execute(shopOwner,model);
 		return "thymeleaf/customer/shopDetailView";
 	}
 }
