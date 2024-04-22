@@ -31,9 +31,15 @@ public class CustomerController {
 		return "redirect:/";
 	}
 	
+
 	@RequestMapping("shopList")
 	public String shopList(HttpSession session,Model model) {
 		customerShopListService.execute(session, model);
 		return "thymeleaf/customer/shopList";
+	}
+
+	@GetMapping("detail")
+	public String detail() {
+		return "thymeleaf/customer/shopDetailView";
 	}
 }
