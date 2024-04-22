@@ -7,7 +7,8 @@
 	SHOP_NAME shopName, MENU_NAME menuName, MENU_PRICE menuPrice, MENU_CONTENT menuContent
   , MENU_CONTENT_IMG menuContentImg, MENU_EXPLAIN menuExplain
 </sql>
-<insert id="MenuMapper" >
-
+<insert id="menuInsert" parameterType="menu">
+insert into menu(SHOP_NAME, MENU_NAME, MENU_PRICE, MENU_CONTENT, MENU_CONTENT_IMG, MENU_EXPLAIN)
+values (#{shopName}, #{menuName}, #{menuPrice}, #{menuContent}, #{menuContentImg}, #{menuExplain})
 </insert>
 </mapper>

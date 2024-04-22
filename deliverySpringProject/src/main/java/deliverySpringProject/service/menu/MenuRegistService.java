@@ -27,8 +27,8 @@ public class MenuRegistService {
 		dto.setMenuExplain(menuCommand.getMenuExplain());
 		dto.setMenuName(menuCommand.getMenuName());
 		dto.setMenuPrice(menuCommand.getMenuPrice());
-		AuthInfoDTO auth = (AuthInfoDTO)session.getAttribute("auth");
 		
+		AuthInfoDTO auth = (AuthInfoDTO)session.getAttribute("auth");
 		String shopName=shopMapper.shopNameSelect(auth.getUserName());
 		dto.setShopName(shopName);
 		
