@@ -18,5 +18,6 @@ public class CustomerMenuListService {
 	public void execute(String shopName,Model model) {
 		List<MenuDTO> list = shopMapper.menuSelectList(shopName);
 		model.addAttribute("list",list);
+		
 	}
 }

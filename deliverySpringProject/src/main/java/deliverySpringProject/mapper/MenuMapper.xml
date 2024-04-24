@@ -11,4 +11,11 @@
 insert into menu(SHOP_NAME, MENU_NAME, MENU_PRICE, MENU_CONTENT, MENU_CONTENT_IMG, MENU_EXPLAIN)
 values (#{shopName}, #{menuName}, #{menuPrice}, #{menuContent}, #{menuContentImg}, #{menuExplain})
 </insert>
+
+<select id="menuSelectOne" parameterType="string" resultType="menu">
+
+select * from menu where menu_name=#{menuName} and shop_name=#{shopName}
+
+</select>
+
 </mapper>

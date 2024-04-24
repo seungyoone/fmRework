@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import deliverySpringProject.command.CustomerCommand;
+import deliverySpringProject.mapper.ShopMapper;
+import deliverySpringProject.service.customer.CustomerMenuDetailService;
 import deliverySpringProject.service.customer.CustomerRegistService;
 import deliverySpringProject.service.customer.CustomerShopDetailService;
 import deliverySpringProject.service.customer.CustomerShopListService;
@@ -24,6 +26,12 @@ public class CustomerController {
 	
 	@Autowired
 	CustomerShopDetailService customerShopDetailService;
+	
+	@Autowired
+	CustomerMenuDetailService customerMenuDetailService;
+
+	@Autowired
+	ShopMapper shopMapper;
 	
 	@GetMapping("customerForm")
 	public String customerForm() {
@@ -46,5 +54,22 @@ public class CustomerController {
 	public String detail(String shopOwner,Model model) {
 		customerShopDetailService.execute(shopOwner,model);
 		return "thymeleaf/customer/shopDetailView";
+	}
+	
+	@RequestMapping("menuDetail")
+	public String menuDetail(String menuName,String shopName,Model model) {
+		customerMenuDetailService.execute(menuName,shopName,model);
+		return "thymeleaf/customer/menuDetailView";
+	}
+	
+	@RequestMapping("directOrder")
+	public String directOrder(String qty, String totalPrice) {
+		return "thymeleaf/customer/directOrder";
+	}
+	
+	@RequestMapping("recruitOrder")
+	public String recruitOrder(String qty,String totalPrice) {
+		
+		return "thymeleaf/recruit/recruitForm";
 	}
 }

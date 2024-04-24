@@ -13,3 +13,11 @@ body {
 table {
 	font-family: 'fmFont', sans-serif;
 }
+
+button {
+	font-family: 'fmFont', sans-serif;
+}
+
+.lighter {
+  opacity: 0.5; /* 연하게 표시하려는 텍스트에 적용할 투명도 값 */
+}

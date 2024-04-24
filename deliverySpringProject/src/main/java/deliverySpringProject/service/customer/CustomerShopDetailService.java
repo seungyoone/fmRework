@@ -20,7 +20,6 @@ public class CustomerShopDetailService {
 		ShopDTO dto = new ShopDTO();
 		dto = shopMapper.shopSelectOne(shopOwner);
 		customerMenuListService.execute(dto.getShopName(),model);
-		
 		model.addAttribute("dto",dto);
 		
 		

@@ -34,4 +34,8 @@
 		
 		</select>
 		
+		<select id="shopMinSelect" parameterType="string" resultType="string">
+			select shop_min from shop where shop_name=#{shopName}
+		</select>
+		
 	</mapper>	
