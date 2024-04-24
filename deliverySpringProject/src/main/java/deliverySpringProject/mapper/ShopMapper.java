@@ -20,5 +20,9 @@ public interface ShopMapper {
 	
 	public List<MenuDTO> menuSelectList(String shopName);
 	
+<<<<<<< HEAD
 	public int shopUpdate(ShopDTO dto);
+=======
+	public String shopMinSelect(String shopName);
+>>>>>>> branch 'main' of https://github.com/seungyoone/fmRework.git
 }

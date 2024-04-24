@@ -33,6 +33,7 @@
 			select * from menu where shop_name = #{shopName}
 		</select>
 		
+<<<<<<< HEAD
 		<update id="shopUpdate" parameterType="shop">
 			update SHOP 
 			set shop_name = #{shopName}, shop_explain = #{shopExplain}, shop_min = #{shopMin}, shop_delivery = #{shopDelivery}
@@ -42,4 +43,10 @@
 			</if>
 			where shop_owner = #{shopOwner} and shop_name = #{shopName}
 		</update>
+=======
+		<select id="shopMinSelect" parameterType="string" resultType="string">
+			select shop_min from shop where shop_name=#{shopName}
+		</select>
+		
+>>>>>>> branch 'main' of https://github.com/seungyoone/fmRework.git
 	</mapper>	
