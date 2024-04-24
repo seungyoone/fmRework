@@ -19,4 +19,6 @@ public interface ShopMapper {
 	public ShopDTO shopSelectOne(String shopOwnerNameorId);
 	
 	public List<MenuDTO> menuSelectList(String shopName);
+	
+	public int shopUpdate(ShopDTO dto);
 }

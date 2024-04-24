@@ -37,8 +37,9 @@
 </head>
 <body>
 <table th:each="dto: ${dto}" border=1 align="center" width="400">
+	<caption>가게정보 수정</caption>
 	<tr class="no-border1"><td>
-		<img th:src="|/static/upload/${dto.shopLogo}|" width="300" height="300" />
+		<img th:src="|/static/upload/${dto.shopLogo}|" width="300" height="300"/>
 		</td>
 	</tr>
 	<tr class="no-border"><td>[[${dto.shopName}]]</td></tr>
@@ -58,7 +59,9 @@
   	<tr>
     	<td class="menu-border">가격: [[${list.menuPrice}]]</td>
   	</tr>
-
 </table>
+<div style="text-align: center;"><br />
+	<a href="/owner/shopUpdate">가게정보 수정</a>
+</div>
 </body>
 </html>
