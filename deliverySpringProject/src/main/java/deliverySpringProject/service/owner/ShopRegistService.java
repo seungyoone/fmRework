@@ -2,6 +2,7 @@ package deliverySpringProject.service.owner;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,7 +37,8 @@ public class ShopRegistService {
 		dto.setShopType(shopCommand.getShopType());
 		dto.setShopOwner(auth.getUserName());
 		
-		String fileDir = "C:\\Users\\user\\git\\fmRework\\deliverySpringProject\\target\\classes\\static\\upload";
+		URL resource = getClass().getClassLoader().getResource("static/upload"); 
+		String fileDir = resource.getFile();
 		MultipartFile mf = shopCommand.getShopLogo();
 		String originalFile = mf.getOriginalFilename();
 		String extension = originalFile.substring(originalFile.lastIndexOf("."));
