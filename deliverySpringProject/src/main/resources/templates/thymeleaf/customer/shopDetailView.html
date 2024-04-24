@@ -48,15 +48,15 @@
 	<tr class="no-border1"><td>배달팁 [[${dto.shopDelivery}]]</td></tr>
 </table>
 
-<table class="menuList" border=1 width="400" align="center"> <!-- th:each주기 -->
-	<tr><td rowspan="3">메뉴사진</td>
-    	<td class="menu-border">짜장면</td>
+<table th:each="list: ${list}" class="menuList" border=1 width="400" align="center"> <!-- th:each주기 -->
+	<tr><td rowspan="3"><img th:src="|/static/upload/${list.menuContent}|"width="200" height="200"></td>
+    	<td class="menu-border">[[${list.menuName}]]</td>
     </tr>
   	<tr>
-    	<td class="menu-border">맛이 기똥차유~</td>
+    	<td class="menu-border">[[${list.menuExplain}]]</td>
   	</tr>
   	<tr>
-    	<td class="menu-border">7000원</td>
+    	<td class="menu-border">가격: [[${list.menuPrice}]]</td>
   	</tr>
 
 </table>

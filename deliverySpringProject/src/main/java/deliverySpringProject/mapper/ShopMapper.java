@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import deliverySpringProject.domain.MenuDTO;
 import deliverySpringProject.domain.ShopDTO;
 
 @Mapper
@@ -16,4 +17,6 @@ public interface ShopMapper {
 	public List<ShopDTO> shopSelectList(String customerAddr);
 
 	public ShopDTO shopSelectOne(String shopOwner);
+	
+	public List<MenuDTO> menuSelectList(String shopName);
 }

@@ -13,10 +13,17 @@ public class CustomerShopDetailService {
 	@Autowired
 	ShopMapper shopMapper;
 	
+	@Autowired
+	CustomerMenuListService customerMenuListService;
+	
 	public void execute(String shopOwner,Model model) {
 		ShopDTO dto = new ShopDTO();
 		dto = shopMapper.shopSelectOne(shopOwner);
+		customerMenuListService.execute(dto.getShopName(),model);
+		
 		model.addAttribute("dto",dto);
+		
+		
 		
 	}
 }
