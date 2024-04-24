@@ -36,6 +36,7 @@ public class ShopRegistService {
 		dto.setShopRegistDate(shopCommand.getShopRegistDate());
 		dto.setShopType(shopCommand.getShopType());
 		dto.setShopOwner(auth.getUserName());
+		dto.setShopOwnerId(auth.getUserId());
 		
 		URL resource = getClass().getClassLoader().getResource("static/upload"); 
 		String fileDir = resource.getFile();

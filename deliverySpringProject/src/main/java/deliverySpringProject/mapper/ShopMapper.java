@@ -16,7 +16,7 @@ public interface ShopMapper {
 	
 	public List<ShopDTO> shopSelectList(String customerAddr);
 
-	public ShopDTO shopSelectOne(String shopOwner);
+	public ShopDTO shopSelectOne(String shopOwnerNameorId);
 	
 	public List<MenuDTO> menuSelectList(String shopName);
 }

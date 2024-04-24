@@ -9,6 +9,8 @@ public class AuthInfoDTO {
 	String userPw;
 	String userName;
 	String grade;
+	
+	
 	public String getUserId() {
 		return userId;
 	}

@@ -7,6 +7,7 @@ import org.apache.ibatis.type.Alias;
 @Alias("shop")
 public class ShopDTO {
 
+	String shopOwnerId;
 	String shopOwner;
 	String shopName;
 	String shopType;
@@ -22,6 +23,12 @@ public class ShopDTO {
 	
 	public String getShopOwner() {
 		return shopOwner;
+	}
+	public String getShopOwnerId() {
+		return shopOwnerId;
+	}
+	public void setShopOwnerId(String shopOwnerId) {
+		this.shopOwnerId = shopOwnerId;
 	}
 	public void setShopOwner(String shopOwner) {
 		this.shopOwner = shopOwner;
