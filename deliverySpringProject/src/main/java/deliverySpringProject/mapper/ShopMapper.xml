@@ -49,4 +49,9 @@
 			select shop_min from shop where shop_name=#{shopName}
 		</select>
 		
+		<select id="menuSelectOne" resultType="menu" parameterType="string">
+			select shop_name shopName, menu_name menuName, menu_price menuPrice, menu_content menuContent, menu_explain menuExplain 
+			from menu
+			where menu_name = #{menuName} and shop_name = #{shopName}
+		</select>
 	</mapper>	

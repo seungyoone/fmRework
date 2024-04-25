@@ -49,8 +49,8 @@
 	<tr class="no-border1"><td>배달팁 [[${dto.shopDelivery}]]</td></tr>
 </table>
 
-<table th:each="list: ${list}" class="menuList" border=1 width="400" align="center"> <!-- th:each주기 -->
-	<tr><td rowspan="3"><img th:src="|/static/upload/${list.menuContent}|"width="200" height="200"></td>
+<table th:each="list: ${list}"  border=1 width="400" align="center"> 
+	<tr><td rowspan="3"><img th:src="|/static/upload/${list.menuContent}|" width="200" height="200"></td>
     	<td class="menu-border">[[${list.menuName}]]</td>
     </tr>
   	<tr>
@@ -60,8 +60,10 @@
     	<td class="menu-border">가격: [[${list.menuPrice}]]</td>
   	</tr>
 </table>
-<div style="text-align: center;"><br />
+
+<div style="text-align:center;"><br />
 	<a href="/owner/shopUpdate">가게정보 수정</a>
 </div>
+
 </body>
 </html>

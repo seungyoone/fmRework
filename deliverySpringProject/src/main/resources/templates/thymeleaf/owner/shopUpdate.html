@@ -99,24 +99,25 @@ function fileDel(orgFile, storeFile, btn, kind){
 		<td>배달팁</td>
 		<td><input type="text" name="shopDelivery" th:value="${dto.shopDelivery}" /></td></tr>
 </table>
-<form action="menuUpdate" method="post">
+
 <table th:each="list: ${list}" class="menuList" border=1 width="400" align="center"> <!-- th:each주기 -->
-	<tr><td rowspan="3"><img th:src="|/static/upload/${list.menuContent}|"width="200" height="200"></td>
+	<tr><td rowspan="3">
+		<a th:href="|../menu/menuUpdate?menuName=${list.menuName}&shopName=${list.shopName}|">
+		<img th:src="|/static/upload/${list.menuContent}|" width="200" height="200"></a></td>
     	<td class="menu-border">
-    		<input type="text" name="menuName" th:value="${list.menuName}" /></td>
+    	<a th:href="|../menu/menuUpdate?menuName=${list.menuName}&shopName=${list.shopName}|">[[${list.menuName}]]</a></td>
     </tr>
   	<tr>
     	<td class="menu-border">
-    		<input type="text" name="menuExplain" th:value="${list.menuExplain}" /></td>
+    	<a th:href="|../menu/menuUpdate?menuName=${list.menuName}&shopName=${list.shopName}|">[[${list.menuExplain}]]</a></td>
   	</tr>
   	<tr>
     	<td class="menu-border">
-    		<input type="text" name="menuPrice" th:value="${list.menuPrice}" /></td>
+    	<a th:href="|../menu/menuUpdate?menuName=${list.menuName}&shopName=${list.shopName}|">가격: [[${list.menuPrice}]]</a></td>
   	</tr>
 </table>
-</form>
 <div style="text-align: center;"><br />
-	<a href="/owner/shopUpdate">가게정보 수정</a>
+	<input type="submit" value="수정완료" >
 </div>
 </body>
 </html>

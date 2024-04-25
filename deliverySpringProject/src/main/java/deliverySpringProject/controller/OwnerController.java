@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import deliverySpringProject.command.OwnerCommand;
 import deliverySpringProject.command.ShopCommand;
+import deliverySpringProject.service.menu.MenuDetailService;
 import deliverySpringProject.service.owner.OwnerRegistService;
 import deliverySpringProject.service.owner.OwnerShopDetailService;
 import deliverySpringProject.service.owner.OwnerShopUpdateService;

@@ -27,6 +27,5 @@ public class OwnerShopDetailService {
 		dto = shopMapper.shopSelectOne(shopOwnerId);
 		customerMenuListService.execute(dto.getShopName(),model);
 		model.addAttribute("dto",dto);
-		model.addAttribute("newLine", "\n");
 	}
 }
