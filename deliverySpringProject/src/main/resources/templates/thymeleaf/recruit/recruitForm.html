@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
 <link rel="stylesheet" type="text/css" href="/static/css/font.css">
 </head>
 <body>
@@ -10,7 +11,7 @@
 <br/>
 주문모집글 작성
 </div>
-	<form>
+	<form action="registRecruit" method="post">
 	<table border="1" align="center" width="400">
 		
 		<tr>
@@ -23,8 +24,8 @@
 		</tr>
 		<tr>
 			<td>추가주문해야할 금액</td>
-			<td th:if="${restPrice}>0"><input type="text" value="">[[${}restPrice]]</td>
-			<td th:if="0>=${restPrice}">최소주문금액 달성! 바로주문가능</td>
+			<td th:if="${restPrice}>0"><input type="text" name="restPrice" th:value="${restPrice}"></td>
+			<td th:if="0>=${restPrice}"><input type="text" name="restPrice" value="최소주문금액달성"></td>
 		</tr>
 		
 		<tr>
@@ -34,7 +35,7 @@
 		
 		<tr>
 			<td>모집글 내용:</td>
-			<td><input type="text" name="boardContent"/></td>
+			<td><textarea rows="5" cols="22" name="boardContent"></textarea></td>
 		</tr>
 
 		<tr>
@@ -52,22 +53,22 @@
 	
 	<tr>
 		<td>주문한 메뉴:</td>
-		<td>[[${mdto.getMenuName()}]]</td>
+		<td id="menuName">[[${mdto.getMenuName()}]]</td>
 	</tr>
 	
 	<tr>
 		<td>메뉴 가격:</td>
-		<td>[[${mdto.getMenuPrice()}]]</td>
+		<td id="menuPrice">[[${mdto.getMenuPrice()}]]</td>
 	</tr>
 	
 	<tr>
 		<td>주문 수량:</td>
-		<td>[[${qty}]]</td>
+		<td id="qty">[[${qty}]]</td>
 	</tr>
 	
 	<tr>
 		<td>주문 총가격:</td>
-		<td>[[${totalPrice}]]</td>
+		<td id="totalPrice">[[${totalPrice}]]</td>
 	</tr>
 	
 	<tr>
@@ -75,11 +76,34 @@
 		<td th:if="${restPrice}>0">[[${restPrice}]]원 더 주문하면 배달 가능!</td>
 		
 		<td th:if="0>=${restPrice}">배달가능</td>
-	
 	</tr>
 	</table>
 	
+	<input type="hidden" id="menuNameInput" name="menuName">
+	<input type="hidden" id="menuPriceInput" name="menuPrice">
+	<input type="hidden" id="qtyInput" name="qty">
+	<input type="hidden" id="totalPriceInput" name="totalPrice">
+	
+	<div align="center">
+	<br />
+	<input type="submit" value="모집글등록"/>
+	</div>
 	</form>
+	
+	<script type="text/javascript">
+var menuName = document.getElementById("menuName").innerText;
+document.getElementById("menuNameInput").value = menuName;
+
+var menuPrice = document.getElementById("menuPrice").innerText;
+document.getElementById("menuPriceInput").value = menuPrice;
+
+var qty = document.getElementById("qty").innerText;
+document.getElementById("qtyInput").value = qty;
+
+var totalPrice = document.getElementById("totalPrice").innerText;
+document.getElementById("totalPriceInput").value = totalPrice;
+
+</script>
 	
 </body>
 </html>
