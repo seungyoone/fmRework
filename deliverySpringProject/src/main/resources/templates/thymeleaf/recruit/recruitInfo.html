@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+상세화면
+<table border="1" align="center" width="400">
+		
+		<tr>
+			<td>모집 식당:</td>
+			<td>[[${dto.getShopName()}]]</td>
+		</tr>
+		<tr>
+			<td>모집글 작성자:</td>
+			<td>[[${dto.getBoardWriter()}]]</td>
+		</tr>
+		<tr>
+			<td>추가주문해야할 금액</td>
+			<td th:if="${dto.getRestPrice()}>0">[[${dto.getRestPrice()}]]원</td>
+			<td th:if="0>=${dto.getRestPrice()}">최소주문금액달성</td>
+		</tr>
+		
+		<tr>
+			<td>모집글 제목:</td>
+			<td>[[${dto.getBoardSubject}]]</td>
+		</tr>
+		
+		<tr>
+			<td>모집글 내용:</td>
+			<td><span>[[${dto.getBoardContent}]]</span></td>
+		</tr>
+
+		<tr>
+			<td>모집 인원:</td>
+			<td>[[${dto.getRecruitNum}]]</td>
+		</tr>
+		
+	</table>
+	
+	
+</body>
+</html>

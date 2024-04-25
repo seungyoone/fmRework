@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+	"-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="deliverySpringProject.mapper.RecruitMapper">
+
+<insert id="recruitRegist" parameterType="recruit">
+	insert into recruit(shop_name,board_writer,rest_price,board_subject,board_content
+	,recruit_num,menu_name,menu_price,qty,total_price)
+	values(#{shopName},#{boardWriter},#{restPrice},#{boardSubject},#{boardContent},#{recruitNum}
+	,#{menuName},#{menuPrice},#{qty},#{totalPrice})
+</insert>
+
+
+</mapper>
