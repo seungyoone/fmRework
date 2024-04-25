@@ -33,14 +33,20 @@ window.onload = function() {
 function directOrder() {
 	var quantity = document.getElementById("quantity").value;
     var totalPrice = document.getElementById("totalPrice").innerText;
-    location.href="/customer/directOrder?qty="+quantity+"&totalprice="+totalPrice;
+    var menuName = "[[${dto.menuName}]]";
+    var shopName = "[[${shopName}]]";
+    var shopMin = "[[${shopMin}]]";
+    location.href="/customer/directOrder?qty="+quantity+"&totalprice="+totalPrice+ "&menuName=" + menuName+ "&shopName=" + shopName;
 }
 
 // 주문자모집하기 버튼 클릭 시 동작하는 함수
 function recruitOrder() {
 	var quantity = document.getElementById("quantity").value;
     var totalPrice = document.getElementById("totalPrice").innerText;
-    location.href="/customer/recruitOrder?qty="+quantity+"&totalPrice="+totalPrice;
+    var menuName = "[[${dto.menuName}]]";
+    var shopName = "[[${shopName}]]";
+    var shopMin = "[[${shopMin}]]";
+    location.href="/customer/recruitOrder?qty="+quantity+"&totalPrice="+totalPrice+ "&menuName=" + menuName+ "&shopName=" + shopName+"&shopMin="+shopMin;
 }
 </script>
 <style>

@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import deliverySpringProject.command.CustomerCommand;
+import deliverySpringProject.domain.AuthInfoDTO;
+import deliverySpringProject.domain.MenuDTO;
+import deliverySpringProject.mapper.MenuMapper;
 import deliverySpringProject.mapper.ShopMapper;
 import deliverySpringProject.service.customer.CustomerMenuDetailService;
 import deliverySpringProject.service.customer.CustomerRegistService;
@@ -29,9 +32,13 @@ public class CustomerController {
 	
 	@Autowired
 	CustomerMenuDetailService customerMenuDetailService;
+	
 
 	@Autowired
 	ShopMapper shopMapper;
+	
+	@Autowired
+	MenuMapper menuMapper;
 	
 	@GetMapping("customerForm")
 	public String customerForm() {
@@ -59,16 +66,29 @@ public class CustomerController {
 	@RequestMapping("menuDetail")
 	public String menuDetail(String menuName,String shopName,Model model) {
 		customerMenuDetailService.execute(menuName,shopName,model);
+		model.addAttribute("shopName",shopName);
 		return "thymeleaf/customer/menuDetailView";
 	}
 	
 	@RequestMapping("directOrder")
-	public String directOrder(String qty, String totalPrice) {
+	public String directOrder(String qty, String totalPrice,String menuName,String shopName) {
 		return "thymeleaf/customer/directOrder";
 	}
 	
 	@RequestMapping("recruitOrder")
-	public String recruitOrder(String qty,String totalPrice) {
+	public String recruitOrder(String qty,String totalPrice,String menuName,String shopName,String shopMin,HttpSession session,Model model) {
+		AuthInfoDTO auth = (AuthInfoDTO)session.getAttribute("auth");
+		MenuDTO mdto = menuMapper.menuSelectOne(menuName, shopName);
+		model.addAttribute("mdto",mdto);
+		model.addAttribute("auth",auth);
+		model.addAttribute("menuName",menuName);
+		model.addAttribute("qty",qty);
+		model.addAttribute("totalPrice",totalPrice);
+		model.addAttribute("shopMin",shopMin);
+		int restPrice = Integer.parseInt(shopMin)-Integer.parseInt(totalPrice);
+		model.addAttribute("restPrice",restPrice);
+	
+		
 		
 		return "thymeleaf/recruit/recruitForm";
 	}

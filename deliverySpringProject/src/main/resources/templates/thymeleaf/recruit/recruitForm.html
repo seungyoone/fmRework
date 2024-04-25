@@ -3,22 +3,83 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="/static/css/font.css">
 </head>
 <body>
-	모집글작성페이지
+<div align="center">
+<br/>
+주문모집글 작성
+</div>
+	<form>
 	<table border="1" align="center" width="400">
+		
+		<tr>
+			<td>모집 식당:</td>
+			<td><input type="text" name="shopName" th:value="${mdto.getShopName()}" readonly="readonly"/></td>
+		</tr>
+		<tr>
+			<td>모집글 작성자:</td>
+			<td><input type="text" name="boardWriter" th:value="${auth.getUserId()}" readonly="readonly"></td>
+		</tr>
+		<tr>
+			<td>추가주문해야할 금액</td>
+			<td th:if="${restPrice}>0"><input type="text" value="">[[${}restPrice]]</td>
+			<td th:if="0>=${restPrice}">최소주문금액 달성! 바로주문가능</td>
+		</tr>
+		
 		<tr>
 			<td>모집글 제목:</td>
 			<td><input type="text" name="boardSubject"/></td>
 		</tr>
+		
 		<tr>
-			<td>모집 식당:</td>
-			<td><input type="text" name=""/></td>
+			<td>모집글 내용:</td>
+			<td><input type="text" name="boardContent"/></td>
 		</tr>
+
 		<tr>
 			<td>모집 인원선택:</td>
-			<td><input type="number" name="" /></td>
+			<td><input type="number" name="recruitNum" /></td>
 		</tr>
+		
 	</table>
+	
+	<div align="center">
+	<br />
+	주문명세표
+	</div>
+	<table border=1 align="center" width="300">
+	
+	<tr>
+		<td>주문한 메뉴:</td>
+		<td>[[${mdto.getMenuName()}]]</td>
+	</tr>
+	
+	<tr>
+		<td>메뉴 가격:</td>
+		<td>[[${mdto.getMenuPrice()}]]</td>
+	</tr>
+	
+	<tr>
+		<td>주문 수량:</td>
+		<td>[[${qty}]]</td>
+	</tr>
+	
+	<tr>
+		<td>주문 총가격:</td>
+		<td>[[${totalPrice}]]</td>
+	</tr>
+	
+	<tr>
+		<td>주문 가능여부:</td>
+		<td th:if="${restPrice}>0">[[${restPrice}]]원 더 주문하면 배달 가능!</td>
+		
+		<td th:if="0>=${restPrice}">배달가능</td>
+	
+	</tr>
+	</table>
+	
+	</form>
+	
 </body>
 </html>
