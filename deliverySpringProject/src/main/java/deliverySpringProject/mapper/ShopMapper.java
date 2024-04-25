@@ -20,5 +20,7 @@ public interface ShopMapper {
 	
 	public List<MenuDTO> menuSelectList(String shopName);
 	
+	public int shopUpdate(ShopDTO dto);
+	
 	public String shopMinSelect(String shopName);
 }

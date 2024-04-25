@@ -19,7 +19,6 @@ public class ShopCommand {
 	Integer shopDelivery;
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	Date shopRegistDate;
-	
 	public String getShopOwner() {
 		return shopOwner;
 	}
@@ -62,7 +61,6 @@ public class ShopCommand {
 	public void setShopExplain(String shopExplain) {
 		this.shopExplain = shopExplain;
 	}
-	
 	public MultipartFile getShopLogo() {
 		return shopLogo;
 	}
@@ -87,7 +85,6 @@ public class ShopCommand {
 	public void setShopRegistDate(Date shopRegistDate) {
 		this.shopRegistDate = shopRegistDate;
 	}
-	
 	
 	
 }

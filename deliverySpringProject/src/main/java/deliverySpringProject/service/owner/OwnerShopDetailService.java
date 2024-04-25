@@ -21,12 +21,12 @@ public class OwnerShopDetailService {
 	
 	public void execute(HttpSession session,Model model) {
 		AuthInfoDTO auth = (AuthInfoDTO)session.getAttribute("auth");
-		String shopOwnerId = auth.getUserId();
+		String shopOwnerId = auth.getUserName();
 		
 		ShopDTO dto = new ShopDTO();
 		dto = shopMapper.shopSelectOne(shopOwnerId);
 		customerMenuListService.execute(dto.getShopName(),model);
 		model.addAttribute("dto",dto);
-		
+		model.addAttribute("newLine", "\n");
 	}
 }

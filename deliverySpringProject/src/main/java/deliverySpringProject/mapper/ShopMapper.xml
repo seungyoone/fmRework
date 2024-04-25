@@ -31,9 +31,20 @@
 		
 		<select id="menuSelectList" parameterType="string" resultType="menu">
 			select * from menu where shop_name = #{shopName}
-		
 		</select>
 		
+		<update id="shopUpdate" parameterType="shop">
+			update SHOP 
+			set shop_name = #{shopName}, shop_explain = #{shopExplain}, shop_min = #{shopMin}, shop_delivery = #{shopDelivery} 
+			
+			<if test="shopLogo != null">
+			, shop_logo = #{shopLogo}
+			, shop_logo_img = #{shopLogoImg}
+			</if>
+		
+			where shop_owner = #{shopOwner} and shop_ownerid=#{shopOwnerId}
+		</update>
+
 		<select id="shopMinSelect" parameterType="string" resultType="string">
 			select shop_min from shop where shop_name=#{shopName}
 		</select>
