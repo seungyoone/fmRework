@@ -32,6 +32,6 @@ public class FileDelService {
 			num = "1";
 		}
 		session.setAttribute("fileList", list);
-		return num;
+		return num;  //num은 ajax에 보낼 값
 	}
 }

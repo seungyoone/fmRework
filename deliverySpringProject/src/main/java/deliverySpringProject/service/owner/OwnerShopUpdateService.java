@@ -24,25 +24,25 @@ public class OwnerShopUpdateService {
 	@Autowired
 	ShopMapper shopMapper;
 	public void execute(ShopCommand shopCommand, BindingResult result, HttpSession session, Model model) {
-		ShopDTO dto = new ShopDTO();
+		AuthInfoDTO auth = (AuthInfoDTO)session.getAttribute("auth");
+		ShopDTO dto = shopMapper.shopSelectOne(auth.getUserId());
 		
 		// command에 점주는 있는데 수정할떄 점주를 수정하지 않기때문에 이렇게 가져와야한다.
-		AuthInfoDTO auth = (AuthInfoDTO)session.getAttribute("auth");
-		shopCommand.setShopOwner(auth.getUserName());
-		dto.setShopOwner(shopCommand.getShopOwner());
+
 		
 		dto.setShopName(shopCommand.getShopName());
 		dto.setShopExplain(shopCommand.getShopExplain());
 		dto.setShopMin(shopCommand.getShopMin());
 		dto.setShopDelivery(shopCommand.getShopDelivery());
 		
-		
+		/*
 		List<FileDTO> list = (List<FileDTO>)session.getAttribute("fileList");
-		ShopDTO shopDTO = shopMapper.shopSelectOne(shopCommand.getShopOwner());
+	
 		
 		URL resource = getClass().getClassLoader().getResource("static/upload");
 		String fileDir = resource.getFile();
 		if(!shopCommand.getShopLogo().getOriginalFilename().isEmpty()) {
+			System.out.println(shopCommand.getShopLogo());
 			//2. 파일객체 불러오기
 			MultipartFile mf = shopCommand.getShopLogo();
 			//3. 파일이름 가져오기
@@ -68,12 +68,12 @@ public class OwnerShopUpdateService {
 			}
 		}else {
 			if(list != null) {
-				for(FileCommand fileCommand : list) {
-					if(fileCommand.getStoreFile().equals(shopDTO.getShopLogo())) {
+				for(FileDTO fileCommand : list) {
+					if(fileCommand.getStoreFile().equals(dto .getShopLogo())) {
 						// session에 삭제 정보가 있는데 file을 가져오지 않음
 						result.rejectValue("shopLogo", "error");
 						model.addAttribute("error", "식당 사진을 선택해주세요");
-						model.addAttribute("shopCommand", shopDTO);
+						model.addAttribute("shopCommand", dto);
 						session.removeAttribute("fileList");
 						return;
 					}
@@ -89,6 +89,7 @@ public class OwnerShopUpdateService {
 				}
 			}
 		}
+		*/
 		shopMapper.shopUpdate(dto);
 	}
 }

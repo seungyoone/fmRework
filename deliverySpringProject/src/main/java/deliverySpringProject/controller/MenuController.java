@@ -26,4 +26,9 @@ public class MenuController {
 		return "redirect:/";
 	}
 	
+	@PostMapping("menuUpdate")
+	public String menuUpdate(MenuCommand menuCommand, HttpSession session) {
+		return "";
+	}
+	
 }

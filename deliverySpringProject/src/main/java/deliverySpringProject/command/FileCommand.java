@@ -3,7 +3,6 @@ package deliverySpringProject.command;
 public class FileCommand {
 	String orgFile;
 	String storeFile;
-	int qty;
 	public String getOrgFile() {
 		return orgFile;
 	}
@@ -15,11 +14,5 @@ public class FileCommand {
 	}
 	public void setStoreFile(String storeFile) {
 		this.storeFile = storeFile;
-	}
-	public int getQty() {
-		return qty;
-	}
-	public void setQty(int qty) {
-		this.qty = qty;
 	}
 }
