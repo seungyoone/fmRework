@@ -14,6 +14,16 @@ public class RecruitDTO {
 	String menuPrice;
 	String qty;
 	String totalPrice;
+	String shopLogo;
+	
+	
+	
+	public String getShopLogo() {
+		return shopLogo;
+	}
+	public void setShopLogo(String shopLogo) {
+		this.shopLogo = shopLogo;
+	}
 	public String getShopName() {
 		return shopName;
 	}

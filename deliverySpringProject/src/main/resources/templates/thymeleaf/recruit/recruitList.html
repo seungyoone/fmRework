@@ -6,27 +6,22 @@
 </head>
 <body>
 
-<table align="center" width="600">
-	<caption>FoodMate</caption>
+<caption>주문모집글 게시판</caption>
+<table th:each="list:${list}" align="center" width="600" border=1>
 	<tr>
-        <td rowspan="2">이미지1</td>
-        <td>식당이름1</td>
-        <td>동네이름1</td>
+        <td rowspan="3" width="100"><img th:src="|/static/upload/${list.shopLogo}|" width=100></td>
+       	<td width="250">제목:<a th:href="|recruitDetail?boardWriter=${list.boardWriter}|">[[${list.boardSubject}]]</a></td>
+       	<td>작성자:<a th:href="|recruitDetail?boardWriter=${list.boardWriter}|">[[${list.boardWriter}]]</a></td>
     </tr>
     <tr>
-        <td>모집상태,파티원수</td>      <!-- 모집중 or 모집완료, 파티원수는 1/4이런 식 -->
-        <td>최소주문금액까지 남은 금액</td>
-    </tr>
-    
-    <tr>
-        <td rowspan="2">이미지2</td>
-        <td>식당이름2</td>
-        <td>동네이름2</td>
+        <td>[[${list.shopName}]]</td>
+        <td>[[${listAddr}]]</td>
     </tr>
     <tr>
-        <td>모집상태,파티원수</td>      <!-- 모집중 or 모집완료, 파티원수는 1/4이런 식 -->
-        <td>최소주문금액까지 남은 금액</td>
+    	<td>모집인원: [[${list.recruitNum}]]명</td>      <!-- 모집중 or 모집완료, 파티원수는 1/4이런 식 -->
+        <td>배달가능까지 남은 금액: [[${list.restPrice}]]</td>
     </tr>
 </table>
+</th:block>
 </body>
 </html>

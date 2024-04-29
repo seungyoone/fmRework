@@ -25,6 +25,11 @@ public class RecruitRegistService {
 		dto.setRestPrice(recruitCommand.getRestPrice());
 		dto.setShopName(recruitCommand.getShopName());
 		dto.setTotalPrice(recruitCommand.getTotalPrice());
+		
+		String shopName = recruitCommand.getShopName();
+		dto.setShopLogo(recruitMapper.selectShopLogo(shopName));
+		
+		model.addAttribute("boardWriter", dto.getBoardWriter());
 		model.addAttribute("dto",dto);
 		
 		recruitMapper.recruitRegist(dto);

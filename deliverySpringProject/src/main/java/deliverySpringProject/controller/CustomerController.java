@@ -11,13 +11,14 @@ import deliverySpringProject.command.CustomerCommand;
 import deliverySpringProject.command.RecruitCommand;
 import deliverySpringProject.domain.AuthInfoDTO;
 import deliverySpringProject.domain.MenuDTO;
-import deliverySpringProject.domain.RecruitDTO;
 import deliverySpringProject.mapper.MenuMapper;
 import deliverySpringProject.mapper.ShopMapper;
 import deliverySpringProject.service.customer.CustomerMenuDetailService;
 import deliverySpringProject.service.customer.CustomerRegistService;
 import deliverySpringProject.service.customer.CustomerShopDetailService;
 import deliverySpringProject.service.customer.CustomerShopListService;
+import deliverySpringProject.service.recruit.RecruitDetailService;
+import deliverySpringProject.service.recruit.RecruitListService;
 import deliverySpringProject.service.recruit.RecruitRegistService;
 import jakarta.servlet.http.HttpSession;
 
@@ -38,7 +39,13 @@ public class CustomerController {
 
 	@Autowired
 	RecruitRegistService recruitRegistService;
+	
+	@Autowired
+	RecruitListService recruitListService;
 
+	@Autowired
+	RecruitDetailService recruitDetailService;
+	
 	@Autowired
 	ShopMapper shopMapper;
 
@@ -98,9 +105,23 @@ public class CustomerController {
 	}
 
 	@RequestMapping("registRecruit")
-	public String registRecruit(RecruitCommand recruitCommand, Model model) {
+	public String registRecruit(RecruitCommand recruitCommand, Model model,HttpSession session) {
 		recruitRegistService.execute(recruitCommand, model);
-
+		AuthInfoDTO auth = (AuthInfoDTO)session.getAttribute("auth");
+		String userId = auth.getUserId();
+		model.addAttribute("userId", userId);
 		return "thymeleaf/recruit/recruitInfo";
+	}
+	
+	@RequestMapping("recruitList")
+	public String recruitList(HttpSession session,Model model) {
+		recruitListService.execute(session,model);
+		return "thymeleaf/recruit/recruitList";
+	}
+	
+	@RequestMapping("recruitDetail")
+	public String recruitDetail(String boardWriter,Model model) {
+		recruitDetailService.execute(boardWriter,model);
+		return "thymeleaf/recruit/recruitDetail";
 	}
 }
