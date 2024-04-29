@@ -3,6 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript">
+
+function menuDel(menuName, shopName){
+	location.href="menuDelete?menuName="+menuName+"&shopName="+shopName;
+}
+
+</script>
 <style>
     .first-column {
         width: 25%;
@@ -20,7 +27,7 @@
 <form action="menuModify" method="post">
 <table th:each="dto:${dto}" border=1 width="600" align="center"> 
 <tr>
-	<td rowspan="3" class="first-column"><img th:src="|/static/upload/${dto.menuContent}|" width="200" height="200"></td>
+	<td rowspan="4" class="first-column"><img th:src="|/static/upload/${dto.menuContent}|" width="200" height="200"></td>
     <td class="second-column">메뉴이름 : <input type="text" name="menuName" th:value="${dto.menuName}" /></td>
 </tr>
 
@@ -30,10 +37,13 @@
 <tr>
     <td class="second-column">메뉴가격 : <input type="text" name="menuPrice" th:value="${dto.menuPrice}" /></td>
 </tr>
+<tr>
+	<td clospan="2" align="center">
+		<button align="center" type="button" th:attr="onclick=|menuDel('${dto.menuName}', '${dto.shopName}');|">삭제</button>
+		<input type="submit" value="수정완료">
+	</td>
+</tr>
 </table>
-<div style="text-align: center;"><br />
-	<input type="submit" value="수정완료">
-</div>
 </form>
 </body>
 </html>

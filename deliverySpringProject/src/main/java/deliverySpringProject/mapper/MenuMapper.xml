@@ -13,9 +13,17 @@ values (#{shopName}, #{menuName}, #{menuPrice}, #{menuContent}, #{menuContentImg
 </insert>
 
 <select id="menuSelectOne" parameterType="string" resultType="menu">
-
 select * from menu where menu_name=#{menuName} and shop_name=#{shopName}
-
 </select>
 
+<update id="menuUpdate" parameterType="menu">
+update menu 
+set menu_Name=#{menuName}, menu_Price=#{menuPrice}, menu_Explain=#{menuExplain}
+where menu_Name=#{menuName} and shop_Name=#{shopName}
+</update>
+
+<delete id="menuDelete" parameterType="string">
+delete from menu
+where menu_name=#{menuName} and shop_Name=#{shopName}
+</delete>
 </mapper>
