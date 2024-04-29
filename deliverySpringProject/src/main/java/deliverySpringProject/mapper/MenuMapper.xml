@@ -26,4 +26,9 @@ where menu_Name=#{menuName} and shop_Name=#{shopName}
 delete from menu
 where menu_name=#{menuName} and shop_Name=#{shopName}
 </delete>
+
+<update id="menuShopUpdate" parameterType="string">
+update menu set shop_name = #{newName} where shop_name = #{exName}
+
+</update>
 </mapper>

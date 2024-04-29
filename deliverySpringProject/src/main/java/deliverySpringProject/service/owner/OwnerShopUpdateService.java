@@ -1,21 +1,14 @@
 package deliverySpringProject.service.owner;
 
-import java.io.File;
-import java.net.URL;
-import java.util.List;
-import java.util.UUID;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.multipart.MultipartFile;
 
-import deliverySpringProject.command.FileCommand;
 import deliverySpringProject.command.ShopCommand;
 import deliverySpringProject.domain.AuthInfoDTO;
-import deliverySpringProject.domain.FileDTO;
 import deliverySpringProject.domain.ShopDTO;
+import deliverySpringProject.mapper.MenuMapper;
 import deliverySpringProject.mapper.ShopMapper;
 import jakarta.servlet.http.HttpSession;
 
@@ -23,13 +16,16 @@ import jakarta.servlet.http.HttpSession;
 public class OwnerShopUpdateService {
 	@Autowired
 	ShopMapper shopMapper;
+	
+	@Autowired
+	MenuMapper menuMapper;
 	public void execute(ShopCommand shopCommand, BindingResult result, HttpSession session, Model model) {
 		AuthInfoDTO auth = (AuthInfoDTO)session.getAttribute("auth");
 		ShopDTO dto = shopMapper.shopSelectOne(auth.getUserId());
+		String exName = dto.getShopName();
+		String newName = shopCommand.getShopName();
 		
 		// command에 점주는 있는데 수정할떄 점주를 수정하지 않기때문에 이렇게 가져와야한다.
-
-		
 		dto.setShopName(shopCommand.getShopName());
 		dto.setShopExplain(shopCommand.getShopExplain());
 		dto.setShopMin(shopCommand.getShopMin());
@@ -90,6 +86,9 @@ public class OwnerShopUpdateService {
 			}
 		}
 		*/
+		
+		menuMapper.menuShopUpdate(exName,newName);
 		shopMapper.shopUpdate(dto);
+		
 	}
 }

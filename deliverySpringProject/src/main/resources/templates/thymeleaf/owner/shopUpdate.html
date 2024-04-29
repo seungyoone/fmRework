@@ -5,6 +5,18 @@
 <title>Insert title here</title>
 <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.1.min.js"></script> 
 <script type="text/javascript">
+$('.updateBtn').click(function() {
+    var newRestaurantName = $('#newRestaurantNameInput').val(); // 변경된 식당 이름 가져오기
+
+    $.ajax({
+        url: '/updateRestaurantName', // 서버의 업데이트를 처리하는 엔드포인트
+        type: 'POST',
+        data: { restaurantName: newRestaurantName }, // 변경된 식당 이름을 서버에 전달
+        success: function(response) {
+            // 서버에서 받은 응답에 따라 화면을 업데이트하는 로직을 구현
+        }
+    });
+});
 /*
 function fileDel(orgFile, storeFile, btn, kind){
 	$.ajax({
@@ -119,7 +131,7 @@ function fileDel(orgFile, storeFile, btn, kind){
 </table>
 
 <div style="text-align: center;"><br />
-	<input type="submit" value="수정완료" >
+	<input id="updateBtn" type="submit" value="수정완료" >
 </div>
 </body>
 </html>

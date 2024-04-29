@@ -10,4 +10,5 @@ public interface MenuMapper {
 	public MenuDTO menuSelectOne(String menuName, String shopName);
 	public void menuUpdate(MenuDTO dto);
 	public void menuDelete(String menuName, String shopName);
+	public void menuShopUpdate(String exName,String newName);
 }
