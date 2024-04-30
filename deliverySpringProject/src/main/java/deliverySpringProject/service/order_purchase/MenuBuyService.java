@@ -1,4 +1,4 @@
-package deliverySpringProject.service.menu;
+package deliverySpringProject.service.order_purchase;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

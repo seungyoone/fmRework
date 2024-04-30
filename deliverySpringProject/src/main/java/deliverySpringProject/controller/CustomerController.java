@@ -17,7 +17,7 @@ import deliverySpringProject.service.customer.CustomerMenuDetailService;
 import deliverySpringProject.service.customer.CustomerRegistService;
 import deliverySpringProject.service.customer.CustomerShopDetailService;
 import deliverySpringProject.service.customer.CustomerShopListService;
-import deliverySpringProject.service.menu.MenuBuyService;
+import deliverySpringProject.service.order_purchase.MenuBuyService;
 import deliverySpringProject.service.recruit.RecruitDetailService;
 import deliverySpringProject.service.recruit.RecruitListService;
 import deliverySpringProject.service.recruit.RecruitRegistService;
