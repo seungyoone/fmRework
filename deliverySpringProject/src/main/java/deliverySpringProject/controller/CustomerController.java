@@ -47,6 +47,7 @@ public class CustomerController {
 	@Autowired
 	RecruitDetailService recruitDetailService;
 	
+	
 	@Autowired
 	ShopMapper shopMapper;
 
@@ -74,8 +75,8 @@ public class CustomerController {
 	}
 
 	@GetMapping("shopDetail")
-	public String detail(String shopOwner, Model model) {
-		customerShopDetailService.execute(shopOwner, model);
+	public String detail(String shopOwnerId, Model model) {
+		customerShopDetailService.execute(shopOwnerId, model);
 		return "thymeleaf/customer/shopDetailView";
 	}
 
@@ -128,5 +129,20 @@ public class CustomerController {
 	public String recruitDetail(String boardWriter,Model model) {
 		recruitDetailService.execute(boardWriter,model);
 		return "thymeleaf/recruit/recruitDetail";
+	}
+	
+	@RequestMapping("recruitAttend")
+	public String recruitAttend(String shopName,HttpSession session,Model model) {
+		System.out.println(shopName);
+		String shopOwnerId = shopMapper.getShopOwnerId(shopName);
+		customerShopDetailService.execute(shopOwnerId, model);
+		return "thymeleaf/customer/shopAttendView";
+	}
+	
+	@RequestMapping("menuAttendDetail")
+	public String menuAttendDetail(String menuName, String shopName, Model model) {
+		customerMenuDetailService.execute(menuName, shopName, model);
+		model.addAttribute("shopName", shopName);
+		return "thymeleaf/customer/menuAttendView";
 	}
 }

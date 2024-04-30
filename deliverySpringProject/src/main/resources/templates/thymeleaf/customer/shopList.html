@@ -35,12 +35,12 @@
 <table th:each="dto:${dtos}" align="center" border = 1 width="300">
 		<tr class="no-border">
 		<td class ="logo" rowspan="3">
-		<a th:href="|shopDetail?shopOwner=${dto.shopOwner}|">
+		<a th:href="|shopDetail?shopOwnerId=${dto.shopOwnerId}|">
 		<img th:src="|/static/upload/${dto.shopLogo}|" />
 		</a>
 		</td>
 		<td class="nameborder">
-		<a th:href="|shopDetail?shopOwner=${dto.shopOwner}|">
+		<a th:href="|shopDetail?shopOwnerId=${dto.shopOwnerId}|">
 		[[${dto.shopName}]] 
 		</a>
 		</td>

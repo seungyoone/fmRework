@@ -66,6 +66,7 @@
 <th:block th:if="${session.auth!=null}">
 <ul>
    <th:block th:if="${session.auth.grade=='owner'}">
+   <li><a href="/owner/orderList">주문리스트확인</a></li>
    <li><a href="/owner/shopForm">가게등록</a></li>
    <li><a href="/menu/menuForm">메뉴등록</a>
    <li><a href="/login/logout">로그아웃</a></li>

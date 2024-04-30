@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+function updateTotalPrice() {
+    var quantity = document.getElementById("quantity").value;
+    var price = parseFloat("[[${dto.menuPrice}]]"); // 가격을 가져옴
+    var totalPrice = quantity * price; // 수량과 가격을 곱하여 총 가격을 계산
+    document.getElementById("totalPrice").innerText = totalPrice; // 총 가격을 화면에 표시 (소수점 2자리까지)
+}
+
+function increaseQuantity() {
+    var quantityInput = document.getElementById("quantity");
+    quantityInput.stepUp();
+    updateTotalPrice();
+}
+
+function decreaseQuantity() {
+    var quantityInput = document.getElementById("quantity");
+    if (quantityInput.value > 1) {
+        quantityInput.stepDown();
+        updateTotalPrice();
+    }
+}
+
+window.onload = function() {
+    updateTotalPrice();
+};
+
+function attendOrder() {
+	var quantity = document.getElementById("quantity").value;
+    var totalPrice = document.getElementById("totalPrice").innerText;
+    var menuName = "[[${dto.menuName}]]";
+    var shopName = "[[${shopName}]]";
+    var shopMin = "[[${shopMin}]]";
+    location.href="/customer/directOrder?qty="+quantity+"&totalprice="+totalPrice+ "&menuName=" + menuName+ "&shopName=" + shopName;
+}
+</script>
+<style>
+	.no-border td {
+		border-bottom:none;
+		border-left:none;
+		border-right:none;
+	}
+	.no-border1 td {
+		border:none;
+	}
+	
+	.menuList table {
+        width: 50%;
+    }
+    th, td {
+        border: 1px solid black;
+        padding: 8px;
+    }
+    th {
+        text-align: left;
+    }
+    td:first-child {
+        width: 15%; 
+    }
+    td:nth-child(2) {
+        width: 35%;
+    }
+    .menu-border {
+    	border:none;
+    }
+    #quantity {
+    width: 50px; /* 원하는 너비로 조정하세요 */    
+	}
+	.btn-wrapper {
+        text-align: center;
+    }
+    .btn {
+        padding: 8px 16px;
+        margin: 0 auto; /* 수평 중앙 정렬 */
+        width: 45%; /* 테이블의 너비의 반만큼으로 설정 */
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 14px;
+        cursor: pointer;
+    }
+</style>
+<link rel="stylesheet" type="text/css" href="/static/css/font.css">
+</head>
+<body>
+<table border=1 width="400" align="center">
+	<tr><td rowspan="3"><img th:src="|/static/upload/${dto.menuContent}|"width="200" height="200" /></td>
+    	<th class="menu-border">[[${dto.menuName}]]</th>
+    </tr>
+  	<tr>
+    	<td class="menu-border"><span class="lighter">[[${dto.menuExplain}]]</span></td>
+  	</tr>
+  	<tr>
+    	<td class="menu-border">가격: [[${dto.menuPrice}]]</td>
+  	</tr>
+</table>
+<table border=1 width="400" align="center">
+	<tr>
+	<td>&emsp;&emsp;수량&emsp;
+            <button onclick="decreaseQuantity()">-</button>
+            <input type="number" id="quantity" value="1">
+            <button onclick="increaseQuantity()">+</button>
+            &emsp;&emsp;&emsp;
+            총 가격: <span id="totalPrice"></span>
+        </td>
+	</tr>
+	
+	<tr>
+	<td>&emsp;&emsp;&emsp;배달최소주문금액<br />
+		&emsp;&emsp;&emsp;[[${shopMin}]]원</td>
+	</tr>
+	<tr>
+        <td align="center">
+            <button class="btn" id="attend" onclick="attendOrder()">주문참가확정 및 결제</button>
+        </td>
+    </tr>
+</table>
+
+
+
+
+
+
+</body>
+</html>

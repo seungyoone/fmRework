@@ -72,4 +72,9 @@ public class OwnerController {
 		ownerShopDetailService.execute(session,model);
 		return "redirect:shopInfo";
 	}
+	
+	@RequestMapping("orderList")
+	public String orderList() {
+		return "thymeleaf/owner/orderList";	
+	}
 }
