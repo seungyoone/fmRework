@@ -18,6 +18,80 @@
    <td>[[${pdto.getQty}]]/[[${pdto.getTotalPrice}]]</td>
    <td>[[${pdto.getShopDelivery}]]</td>
 </tr> 
+<tr>
+	<td colspan="3"><hr /></td>
+</tr>
+
 </table>
+
+<div>
+	
+	<br />
+</div>
+<form action="menuOrder" method="post">
+<table width="700" align="center">
+   
+   <tr>
+      <td>
+         <table width="350">
+            <tr><td colspan=2>2. 배송 정보</td></tr>
+            <tr>
+               <td>받는 사람: </td>
+               <td>[[${pdto.getCustomerName}]]</td>
+               
+            </tr>
+            <tr>
+               <td>주소: </td>
+               <td>[[${pdto.getCustomerAddr}]]</td>
+            </tr>
+            <tr>
+               <td>상세 주소: </td>
+               <td>[[${pdto.getCustomerAddrDetail}]]</td>
+            </tr>
+            <tr>
+               <td>연락처: </td>
+               <td>[[${pdto.getCustomerPhone}]]</td>
+            </tr>
+            <tr>
+               <td>요청사항</td>
+               <td><input type="text" name="orderMessage"/></td>
+            </tr>
+         </table>
+      </td>
+      <td>
+         <table width="350">
+            <tr><td colspan=2 align="center">3. 결제 정보</td></tr>
+            <tr>
+               <td>총 금액</td>
+               <td align="right">[[${pdto.getTotalPrice}]]원</td>
+            </tr>
+            <tr>
+               <td>총 배송비</td>
+               <td align="right">[[${pdto.getShopDelivery}]]원</td>
+            </tr>
+            <tr>
+               <td>총 결제 금액</td>
+               <td align="right">[[${pdto.getPurchasePrice}]]원</td>
+            </tr>
+            <tr><td align="center" colspan=2><input type="submit" value="결제하기"/></td></tr>
+         </table>
+      </td>
+   </tr>
+   
+</table>
+<input type="hidden" name="customerAddrDetail" th:value="${pdto.getCustomerAddrDetail}"/>
+<input type="hidden" name="customerAddr" th:value="${pdto.getCustomerAddr}"/>
+<input type="hidden" name="customerName" th:value="${pdto.getCustomerName}"/>
+<input type="hidden" name="customerPhone" th:value="${pdto.getCustomerPhone}"/>
+<input type="hidden" name="totalPrice" th:value="${pdto.getTotalPrice}"/>
+<input type="hidden" name="shopDelivery" th:value="${pdto.getShopDelivery}"/>
+<input type="hidden" name="purchasePrice" th:value="${pdto.getPurchasePrice}"/>
+<input type="hidden" name="menuName" th:value="${pdto.getMenuName}"/>
+<input type="hidden" name="qty" th:value="${pdto.getQty}"/>
+<input type="hidden" name="shopName" th:value="${pdto.getShopName}"/>
+<input type="hidden" name="menuContent" th:value="${pdto.getMenuContent}"/>
+
+
+</form>
 </body>
 </html>

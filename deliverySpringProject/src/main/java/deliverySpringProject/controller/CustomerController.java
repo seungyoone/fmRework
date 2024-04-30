@@ -14,6 +14,7 @@ import deliverySpringProject.domain.AuthInfoDTO;
 import deliverySpringProject.domain.MenuDTO;
 import deliverySpringProject.mapper.MenuMapper;
 import deliverySpringProject.mapper.ShopMapper;
+import deliverySpringProject.service.IniPayReqService;
 import deliverySpringProject.service.customer.CustomerMenuDetailService;
 import deliverySpringProject.service.customer.CustomerRegistService;
 import deliverySpringProject.service.customer.CustomerShopDetailService;
@@ -47,6 +48,9 @@ public class CustomerController {
 
 	@Autowired
 	RecruitDetailService recruitDetailService;
+	
+	@Autowired
+	IniPayReqService iniPayReqService;
 	
 	
 	@Autowired
@@ -92,6 +96,12 @@ public class CustomerController {
 	public String directOrder(PurchaseCommand purchaseCommand,HttpSession session,Model model) {
 		menuBuyService.execute(purchaseCommand,session,model);
 		return "thymeleaf/customer/directOrder";
+	}
+	
+	@RequestMapping("menuOrder")
+	public String menuOrder(PurchaseCommand purchaseCommand,Model model)throws Exception {
+		iniPayReqService.execute(purchaseCommand, model);
+		return "thymeleaf/customer/payment";
 	}
 
 	@RequestMapping("recruitOrder")
