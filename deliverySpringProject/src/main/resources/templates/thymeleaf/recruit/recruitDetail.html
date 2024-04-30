@@ -3,9 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="/static/css/font.css">
 </head>
 <body>
 
+<form action="recruitAttend" method="post">
 <table border="1" align="center" width="400">
 		<caption>모집글 게시판 상세보기</caption>
 	
@@ -42,7 +44,9 @@
 	
 	<div align="center">
 	<br />
-	참여하기
+	<input type="submit" value="참가하기" />
 	</div>
+	<input type="hidden" name="shopName" th:value="${dto.getShopName()}">
+	</form>
 </body>
 </html>

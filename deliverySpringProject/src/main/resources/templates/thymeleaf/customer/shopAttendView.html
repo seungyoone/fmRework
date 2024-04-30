@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	.no-border td {
+		border-bottom:none;
+		border-left:none;
+		border-right:none;
+	}
+	.no-border1 td {
+		border:none;
+	}
+	
+	.menuList table {
+        width: 50%;
+    }
+    th, td {
+        border: 1px solid black;
+        padding: 8px;
+    }
+    th {
+        text-align: left;
+    }
+    td:first-child {
+        width: 15%; 
+    }
+    td:nth-child(2) {
+        width: 35%;
+    }
+    .menu-border {
+    	border:none;
+    }
+</style>
+<link rel="stylesheet" type="text/css" href="/static/css/font.css">
+</head>
+<body>
+<table th:each="dto: ${dto}" border=1 align="center" width="400">
+	<tr class="no-border1"><td>
+		<img th:src="|/static/upload/${dto.shopLogo}|" width="350" height="350" />
+		</td>
+	</tr>
+	<tr class="no-border"><td>[[${dto.shopName}]]</td></tr>
+	<tr class="no-border1"><td>[[${dto.shopExplain}]]</td></tr>
+	
+	<tr class="no-border"><td>최소주문금액 [[${dto.shopMin}]]</td></tr>
+	<tr class="no-border1"><td>배달팁 [[${dto.shopDelivery}]]</td></tr>
+</table>
+
+<table th:each="list: ${list}" class="menuList" border=1 width="400" align="center" id="menuTable"> <!-- th:each주기 -->
+	<tr><td rowspan="3"><a th:href="|../customer/menuAttendDetail?menuName=${list.menuName}&shopName=${list.shopName}|"><img th:src="|/static/upload/${list.menuContent}|" width="200"></a></td>
+    	<th class="menu-border"><a th:href="|../customer/menuAttendDetail?menuName=${list.menuName}&shopName=${list.shopName}|">[[${list.menuName}]]</a></th>
+    </tr>
+  	<tr>
+    	<td class="menu-border"><a th:href="|../customer/menuAttendDetail?menuName=${list.menuName}&shopName=${list.shopName}|"><span class="lighter">[[${list.menuExplain}]]</span></a></td>
+  	</tr>
+  	<tr>
+    	<td class="menu-border"><a th:href="|../customer/menuAttendDetail?menuName=${list.menuName}&shopName=${list.shopName}|">가격: [[${list.menuPrice}]]</a></td>
+  	</tr>
+
+</table>
+
+</body>
+</html>

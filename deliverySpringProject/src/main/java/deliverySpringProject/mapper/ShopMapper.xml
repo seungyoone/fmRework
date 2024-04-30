@@ -59,4 +59,9 @@
 		<select id="ShopNameByOwner" parameterType="string" resultType="string">
     		select SHOP_NAME from SHOP WHERE SHOP_OWNER = #{shopOwnerName}
 		</select>
+		
+		<select id="getShopOwnerId" parameterType="string" resultType="string">
+			select shop_ownerId from shop where shop_name = #{shopName}
+		
+		</select>
 	</mapper>	

@@ -16,9 +16,9 @@ public class CustomerShopDetailService {
 	@Autowired
 	CustomerMenuListService customerMenuListService;
 	
-	public void execute(String shopOwner,Model model) {
+	public void execute(String shopOwnerId,Model model) {
 		ShopDTO dto = new ShopDTO();
-		dto = shopMapper.shopSelectOne(shopOwner);
+		dto = shopMapper.shopSelectOne(shopOwnerId);
 		customerMenuListService.execute(dto.getShopName(),model);
 		model.addAttribute("dto",dto);
 		

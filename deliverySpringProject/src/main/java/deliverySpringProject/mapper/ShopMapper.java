@@ -28,4 +28,6 @@ public interface ShopMapper {
 	
 	public String ShopNameByOwner(String shopOwnerName);
 	
+	public String getShopOwnerId(String shopName);
+	
 }
