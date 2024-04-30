@@ -17,6 +17,7 @@ import deliverySpringProject.service.customer.CustomerMenuDetailService;
 import deliverySpringProject.service.customer.CustomerRegistService;
 import deliverySpringProject.service.customer.CustomerShopDetailService;
 import deliverySpringProject.service.customer.CustomerShopListService;
+import deliverySpringProject.service.menu.MenuBuyService;
 import deliverySpringProject.service.recruit.RecruitDetailService;
 import deliverySpringProject.service.recruit.RecruitListService;
 import deliverySpringProject.service.recruit.RecruitRegistService;
@@ -51,7 +52,10 @@ public class CustomerController {
 
 	@Autowired
 	MenuMapper menuMapper;
-
+	
+	@Autowired
+	MenuBuyService menuBuyService;
+	
 	@GetMapping("customerForm")
 	public String customerForm() {
 		return "thymeleaf/customer/customerForm";
@@ -84,6 +88,7 @@ public class CustomerController {
 
 	@RequestMapping("directOrder")
 	public String directOrder(String qty, String totalPrice, String menuName, String shopName) {
+		menuBuyService.execute(qty, totalPrice, menuName, shopName);
 		return "thymeleaf/customer/directOrder";
 	}
 
