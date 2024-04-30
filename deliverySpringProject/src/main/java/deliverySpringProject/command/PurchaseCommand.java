@@ -1,6 +1,6 @@
 package deliverySpringProject.command;
 
-public class Order_PurchaseCommand {
+public class PurchaseCommand {
 	String shopName;
 	String menuName;
 	String menuContent;
@@ -11,7 +11,26 @@ public class Order_PurchaseCommand {
 	String customerAddr;
 	String customerAddrDetail;
 	String OrderMessage;
-	String purchasePrice;
+	Integer purchasePrice;
+	String customerPhone;
+	
+	
+	
+	
+	
+	
+	public Integer getPurchasePrice() {
+		return purchasePrice;
+	}
+	public void setPurchasePrice(Integer purchasePrice) {
+		this.purchasePrice = purchasePrice;
+	}
+	public String getCustomerPhone() {
+		return customerPhone;
+	}
+	public void setCustomerPhone(String customerPhone) {
+		this.customerPhone = customerPhone;
+	}
 	public String getShopName() {
 		return shopName;
 	}
@@ -72,10 +91,5 @@ public class Order_PurchaseCommand {
 	public void setOrderMessage(String orderMessage) {
 		OrderMessage = orderMessage;
 	}
-	public String getPurchasePrice() {
-		return purchasePrice;
-	}
-	public void setPurchasePrice(String purchasePrice) {
-		this.purchasePrice = purchasePrice;
-	}
+	
 }

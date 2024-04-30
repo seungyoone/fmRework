@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import deliverySpringProject.command.CustomerCommand;
+import deliverySpringProject.command.PurchaseCommand;
 import deliverySpringProject.command.RecruitCommand;
 import deliverySpringProject.domain.AuthInfoDTO;
 import deliverySpringProject.domain.MenuDTO;
@@ -88,8 +89,8 @@ public class CustomerController {
 	}
 
 	@RequestMapping("directOrder")
-	public String directOrder(String qty, String totalPrice, String menuName, String shopName) {
-		menuBuyService.execute(qty, totalPrice, menuName, shopName);
+	public String directOrder(PurchaseCommand purchaseCommand,HttpSession session,Model model) {
+		menuBuyService.execute(purchaseCommand,session,model);
 		return "thymeleaf/customer/directOrder";
 	}
 

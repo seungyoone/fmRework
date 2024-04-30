@@ -26,7 +26,8 @@
 		</select>
 		
 		<select id="shopSelectOne" parameterType="string" resultType="shop">
-			select * from shop where shop_owner = #{shopOwnerNameorId} or shop_ownerid = #{shopOwnerNameorId}
+			select * from shop where shop_owner = #{shopOwnerNameorIdorshopName} or shop_ownerid = #{shopOwnerNameorIdorshopName}
+			or shop_name = #{shopOwnerNameorIdorshopName}
 		</select>
 		
 		<select id="menuSelectList" parameterType="string" resultType="menu">

@@ -1,6 +1,6 @@
 package deliverySpringProject.domain;
 
-public class Order_PurchaseDTO {
+public class PurchaseDTO {
 	String shopName;
 	String menuName;
 	String menuContent;
@@ -10,8 +10,19 @@ public class Order_PurchaseDTO {
 	String customerName;
 	String customerAddr;
 	String customerAddrDetail;
-	String OrderMessage;
-	String purchasePrice;
+	String orderMessage;
+	Integer purchasePrice;
+	String customerPhone;
+	
+	
+	
+	
+	public String getCustomerPhone() {
+		return customerPhone;
+	}
+	public void setCustomerPhone(String customerPhone) {
+		this.customerPhone = customerPhone;
+	}
 	public String getShopName() {
 		return shopName;
 	}
@@ -67,34 +78,16 @@ public class Order_PurchaseDTO {
 		this.customerAddrDetail = customerAddrDetail;
 	}
 	public String getOrderMessage() {
-		return OrderMessage;
+		return orderMessage;
 	}
 	public void setOrderMessage(String orderMessage) {
-		OrderMessage = orderMessage;
+		this.orderMessage = orderMessage;
 	}
-	public String getPurchasePrice() {
+	public Integer getPurchasePrice() {
 		return purchasePrice;
 	}
-	public void setPurchasePrice(String purchasePrice) {
+	public void setPurchasePrice(Integer purchasePrice) {
 		this.purchasePrice = purchasePrice;
 	}
-	public Order_PurchaseDTO(String shopName, String menuName, String menuContent, String totalPrice, String qty,
-			Integer shopDelivery, String customerName, String customerAddr, String customerAddrDetail,
-			String orderMessage, String purchasePrice) {
-		super();
-		this.shopName = shopName;
-		this.menuName = menuName;
-		this.menuContent = menuContent;
-		this.totalPrice = totalPrice;
-		this.qty = qty;
-		this.shopDelivery = shopDelivery;
-		this.customerName = customerName;
-		this.customerAddr = customerAddr;
-		this.customerAddrDetail = customerAddrDetail;
-		OrderMessage = orderMessage;
-		this.purchasePrice = purchasePrice;
-	}
-	public Order_PurchaseDTO() {
-		super();
-	}
+	
 }

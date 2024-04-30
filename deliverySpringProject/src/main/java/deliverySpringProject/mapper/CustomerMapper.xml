@@ -18,5 +18,9 @@ values(#{customerName}, #{customerId}, #{customerPw}, #{customerAddr}, #{custome
 	select  SUBSTR(customer_addr, INSTR(customer_addr, '(') + 1, INSTR(customer_addr, ')') - INSTR(customer_addr, '(') - 1) from customer where customer_id = #{userId} 
 </select>
 
+<select id="customerSelectOne" parameterType="string" resultType="customer">
+	select * from customer where customer_id = #{customerId}
+
+</select>
 
 </mapper>

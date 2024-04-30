@@ -10,4 +10,5 @@ public interface CustomerMapper {
 	
 	public String customerAddrSelect(String userId);
 	
+	public CustomerDTO customerSelectOne(String customerId);
 }
