@@ -32,10 +32,16 @@ window.onload = function() {
 
 function directOrder() {
 	var quantity = document.getElementById("quantity").value;
-    var totalPrice = document.getElementById("totalPrice").innerText;
+    var totalPrice = parseFloat(document.getElementById("totalPrice").innerText);
     var menuName = "[[${dto.menuName}]]";
-    var shopName = "[[${shopName}]]";
+    var shopName = parseFloat("[[${shopName}]]");
     var shopMin = "[[${shopMin}]]";
+    
+    if (totalPrice < shopMin) {
+        alert("총 가격이 최소 주문 금액보다 작습니다. 추가 주문을 해주세요.");
+        return;
+    }
+    
     location.href="/customer/directOrder?qty="+quantity+"&totalprice="+totalPrice+ "&menuName=" + menuName+ "&shopName=" + shopName;
 }
 
